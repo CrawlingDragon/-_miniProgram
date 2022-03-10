@@ -29,7 +29,8 @@
     "pages/enter_products_bysale/enter_products_bysale",
     "pages/nonghu_detail/nonghu_detail",
     "pages/product_trace_detail/product_trace_detail",
-    "pages/retailer_detail/retailer_detail"
+    "pages/retailer_detail/retailer_detail",
+    "pages/redbag_log/redbag_log"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +47,7 @@
   },
   "usingComponents": {},
   "sitemapLocation": "sitemap.json",
-  "useExtendedLib":{"weui":true}
+  "useExtendedLib": {
+    "weui": true
+  }
 }

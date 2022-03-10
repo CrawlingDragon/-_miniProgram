@@ -118,7 +118,7 @@
             e
           );
         }
-        const app = getApp()
+        const app = getApp();
         var s = {
           data: function () {
             return {
@@ -129,14 +129,16 @@
               show: !1,
               address: "请选择地址",
               address0: "",
+              detailAddress0: "", //详细地址
               address1: "",
               isChecked: !1,
               params: { province: !0, city: !0, area: !0 },
             };
           },
           onShow: function () {
-            var e = JSON.parse(this.wxinfo);
-            this.avatar = e.avatarUrl;
+            // console.log(wxinfo);
+            // var e = JSON.parse(this.wxinfo);
+            // this.avatar = e.avatarUrl;
           },
           computed: i(
             i({}, (0, r.mapState)(["token", "usertype", "wxinfo"])),
@@ -146,10 +148,12 @@
                 return "1" == this.cur_index
                   ? 1 == this.isChecked &&
                       "" !== this.name &&
+                      "" !== this.detailAddress0 &&
                       "请选择地址" !== this.address
                   : "2" == this.cur_index &&
                       1 == this.isChecked &&
                       "" !== this.name &&
+                      this.detailAddress0 !== "" &&
                       "请选择地址" !== this.address &&
                       "" !== this.shopname;
               },
@@ -159,6 +163,9 @@
             i({}, (0, r.mapMutations)(["setUsertype", "setToken"])),
             {},
             {
+              writeDetailAddress: function () {
+                console.log(1);
+              },
               selOption: function (e) {
                 this.cur_index = e;
               },

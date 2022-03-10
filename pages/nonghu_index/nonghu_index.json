@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "石原金牛",
-  "enablePullDownRefresh": false,
   "usingComponents": {
     "u-image": "/uview-ui/components/u-image/u-image",
     "u-icon": "/uview-ui/components/u-icon/u-icon"

@@ -66,6 +66,7 @@
   font-weight: Regular;
   font-size: 34rpx;
   color: #333;
+  margin-bottom: 20rpx;
 }
 .nonghu-index
   .function-points

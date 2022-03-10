@@ -76,7 +76,7 @@
             };
           },
           onLoad: function (e) {
-            console.log("this", app.globalData.baseUrl);
+            // console.log("this", app.globalData.baseUrl);
             this.operation = e?.operation;
           },
           onShow: function (t) {

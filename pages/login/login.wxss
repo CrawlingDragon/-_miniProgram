@@ -1,1 +1,81 @@
-.login.data-v-e24ad6f2{overflow:auto;margin:0 auto;text-align:center}.login .title.data-v-e24ad6f2{font-size:40rpx;font-family:Microsoft YaHei;font-weight:700;display:block;margin-top:100rpx;margin-bottom:102rpx}.login .input-box.data-v-e24ad6f2{margin-top:102rpx;text-align:left;margin:0 64rpx 50rpx 66rpx}.login .input-box.data-v-e24ad6f2 .u-input__right-icon{background-color:#fff;padding-right:20rpx;border-top-right-radius:7rpx;border-bottom-right-radius:7rpx}.login .input-box .text0.data-v-e24ad6f2{margin-bottom:20rpx;font-family:Microsoft YaHei;font-weight:Regular;color:#666;font-size:34rpx}.login .input-box .yanzhengma-box.data-v-e24ad6f2{display:block;margin-top:39rpx}.login .input-box .yanzhengma-box .input-yanzhengma.data-v-e24ad6f2{width:425rpx;display:inline-block}.login .input-box .yanzhengma-box .input-yanzhengma.data-v-e24ad6f2 .u-input__right-icon{background-color:#fff;padding-right:20rpx;border-top-right-radius:7rpx;border-bottom-right-radius:7rpx}.login .input-box .yanzhengma-box .get-yanzhengma.data-v-e24ad6f2{width:166rpx;display:inline-block;text-align:center;vertical-align:top;margin-left:28rpx;line-height:80rpx;background:#1aa93a;color:#fff;font-size:28rpx;font-family:Microsoft YaHei;font-weight:400;border-radius:6rpx}.login .input-box .yanzhengma-box .get-yanzhengma .disable.data-v-e24ad6f2{background-color:#bcbcbc;color:#fff}.login .login-btn.data-v-e24ad6f2{margin:50rpx auto;width:619rpx;height:80rpx;line-height:80rpx}.login .login-btn.data-v-e24ad6f2::after{border:none;outline:none}.login .disable.data-v-e24ad6f2{background-color:#bcbcbc!important;color:#fff}
+.login.data-v-e24ad6f2 {
+  overflow: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.login .title.data-v-e24ad6f2 {
+  font-size: 40rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 700;
+  display: block;
+  margin-top: 100rpx;
+  margin-bottom: 102rpx;
+}
+.login .input-box.data-v-e24ad6f2 {
+  margin-top: 102rpx;
+  text-align: left;
+  margin: 0 64rpx 50rpx 66rpx;
+}
+.login .input-box.data-v-e24ad6f2 .u-input__right-icon {
+  background-color: #fff;
+  padding-right: 20rpx;
+  border-top-right-radius: 7rpx;
+  border-bottom-right-radius: 7rpx;
+}
+.login .input-box .text0.data-v-e24ad6f2,.login .input-box .input-label {
+  margin-bottom: 20rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #666;
+  font-size: 34rpx;
+}
+.login .input-box .yanzhengma-box.data-v-e24ad6f2 {
+  display: block;
+  margin-top: 39rpx;
+}
+.login .input-box .yanzhengma-box .input-yanzhengma.data-v-e24ad6f2 {
+  width: 425rpx;
+  display: inline-block;
+}
+.login
+  .input-box
+  .yanzhengma-box
+  .input-yanzhengma.data-v-e24ad6f2
+  .u-input__right-icon {
+  background-color: #fff;
+  padding-right: 20rpx;
+  border-top-right-radius: 7rpx;
+  border-bottom-right-radius: 7rpx;
+}
+.login .input-box .yanzhengma-box .get-yanzhengma.data-v-e24ad6f2 {
+  width: 166rpx;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin-left: 28rpx;
+  line-height: 80rpx;
+  background: #1aa93a;
+  color: #fff;
+  font-size: 28rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  border-radius: 6rpx;
+}
+.login .input-box .yanzhengma-box .get-yanzhengma .disable.data-v-e24ad6f2 {
+  background-color: #bcbcbc;
+  color: #fff;
+}
+.login .login-btn.data-v-e24ad6f2 {
+  margin: 50rpx auto;
+  width: 619rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.login .login-btn.data-v-e24ad6f2::after {
+  border: none;
+  outline: none;
+}
+.login .disable.data-v-e24ad6f2 {
+  background-color: #bcbcbc !important;
+  color: #fff;
+}

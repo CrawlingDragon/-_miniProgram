@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "注册",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "u-picker": "/uview-ui/components/u-picker/u-picker",
     "u-checkbox": "/uview-ui/components/u-checkbox/u-checkbox"

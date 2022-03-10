@@ -1,19 +1,20 @@
 <view class="nonghu-index data-v-3235c4e5">
   <view class="per-info data-v-3235c4e5">
     <view class="p-left data-v-3235c4e5">
-      <u-image vue-id="92016100-1" width="100%" height="100%" shape="circle" src="{{perinfo.avatar}}" class="data-v-3235c4e5" bind:__l="__l"></u-image>
+      <u-image vue-id="92016100-1" width="100%" height="100%" shape="circle" src="{{perinfo.avatar}}" class="data-v-3235c4e5"></u-image>
     </view>
     <view class="p-middle data-v-3235c4e5">
       <view class="item _p data-v-3235c4e5">{{''+perinfo.realname+''}}</view>
       <view class="item data-v-3235c4e5">{{''+perinfo.mobile+''}}</view>
       <view class="item data-v-3235c4e5">{{''+perinfo.address[0]+''}}</view>
     </view>
-    <view data-event-opts="{{[['tap',[['modefiy']]]]}}" class="p-right data-v-3235c4e5" bindtap="__e">编辑<u-icon vue-id="92016100-2" name="arrow-right" class="data-v-3235c4e5" bind:__l="__l"></u-icon>
+    <view class="p-right data-v-3235c4e5" catchtap="modefiy">编辑<u-icon vue-id="92016100-2" name="arrow-right" class="data-v-3235c4e5"></u-icon>
     </view>
   </view>
   <view class="function-points data-v-3235c4e5">
     <block wx:for="{{points}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-      <view data-event-opts="{{[['tap',[['selPoints',['$0'],[[['points','',index]]]]]]]}}" class="single-points data-v-3235c4e5" bindtap="__e">{{''+item.text+''}}</view>
+      <view class="single-points data-v-3235c4e5" bindtap="selPoints" data-url="{{item.url}}">{{item.text}}
+      </view>
     </block>
   </view>
 </view>
