@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/popup"],{"0f3f":function(t,u,e){"use strict";e.d(u,"b",(function(){return p})),e.d(u,"c",(function(){return o})),e.d(u,"a",(function(){return n}));var n={uPopup:function(){return e.e("uview-ui/components/u-popup/u-popup").then(e.bind(null,"9b87"))},uInput:function(){return Promise.all([e.e("common/vendor"),e.e("uview-ui/components/u-input/u-input")]).then(e.bind(null,"5f31"))}},p=function(){var t=this,u=t.$createElement;t._self._c},o=[]},"1f37":function(t,u,e){"use strict";e.r(u);var n=e("9804"),p=e.n(n);for(var o in n)"default"!==o&&function(t){e.d(u,t,(function(){return n[t]}))}(o);u["default"]=p.a},3702:function(t,u,e){},9804:function(t,u,e){"use strict";Object.defineProperty(u,"__esModule",{value:!0}),u.default=void 0;var n={name:"popup",props:{title:{type:String,default:""},isshow:{type:Boolean,default:!1},popuptype:{type:String,default:""}},data:function(){return{popupshow:!1,addvalue:"",puptype:"",type:"text",border:!1,height:300,inputheight:"80"}},methods:{btnclick:function(t){this.$emit("clickItem",t),"取消"==t||"确定"==t||"我知道了"==t?this.popupshow=!1:"增加"==t&&(this.popupshow=!1,"addpopup"==this.popuptype&&this.$emit("getaddValue",this.addvalue))}},watch:{popupshow:function(t){this.$emit("getShowStatus",t)},isshow:function(t){this.popupshow=t},popuptype:function(t){this.puptype=t,"addpopup"==t?(this.height=370,this.addvalue=""):this.height=300}}};u.default=n},c577:function(t,u,e){"use strict";e.r(u);var n=e("0f3f"),p=e("1f37");for(var o in p)"default"!==o&&function(t){e.d(u,t,(function(){return p[t]}))}(o);e("e560");var i,a=e("f0c5"),c=Object(a["a"])(p["default"],n["b"],n["c"],!1,null,"09dcedab",null,!1,n["a"],i);u["default"]=c.exports},e560:function(t,u,e){"use strict";var n=e("3702"),p=e.n(n);p.a}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/popup-create-component',
+    {
+        'components/popup-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("c577"))
+        })
+    },
+    [['components/popup-create-component']]
+]);

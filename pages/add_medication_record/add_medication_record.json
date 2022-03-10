@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "新增用药记录",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-field": "/uview-ui/components/u-field/u-field",
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-icon": "/uview-ui/components/u-icon/u-icon"
+  }
+}

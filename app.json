@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/enter_products/enter_products",
+    "pages/out_products/out_products",
+    "pages/user_agreement/user_agreement",
+    "pages/user_policy/user_policy",
+    "pages/regesiter/regesiter",
+    "pages/nonghu_index/nonghu_index",
+    "pages/personal/personal",
+    "pages/medication_record/medication_record",
+    "pages/upload_share/upload_share",
+    "pages/add_medication_record/add_medication_record",
+    "pages/medication_record_detail/medication_record_detail",
+    "pages/continue_record/continue_record",
+    "pages/retailer_index/retailer_index",
+    "pages/enter_out_products/enter_out_products",
+    "pages/need_supports/need_supports",
+    "pages/apply_need/apply_need",
+    "pages/enter_products_statistics/enter_products_statistics",
+    "pages/salesman_index/salesman_index",
+    "pages/nonghu_manage/nonghu_manage",
+    "pages/retailer_manage/retailer_manage",
+    "pages/scan_trace/scan_trace",
+    "pages/input_trace/input_trace",
+    "pages/technology_share/technology_share",
+    "pages/sale_support/sale_support",
+    "pages/nong_technology_record/nong_technology_record",
+    "pages/enter_products_bysale/enter_products_bysale",
+    "pages/nonghu_detail/nonghu_detail",
+    "pages/product_trace_detail/product_trace_detail",
+    "pages/retailer_detail/retailer_detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#EFEFF4",
+    "onReachBottomDistance": 30
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "http://syjn.nzsoso.com/"
+    }
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib":{"weui":true}
+}

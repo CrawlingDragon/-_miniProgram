@@ -1,0 +1,14 @@
+<view class="login data-v-e24ad6f2"><text class="title data-v-e24ad6f2">石原金牛小程序</text>
+  <view class="input-box data-v-e24ad6f2">
+    <view class="text0 data-v-e24ad6f2">手机号</view>
+    <u-input bind:input="__e" vue-id="35a7246c-1" type="number" height="{{80}}" maxlength="{{11}}" custom-style="{{inputStyle}}" placeholder-style="{{placeholderStyle}}" placeholder="请输入手机号" trim="{{true}}" value="{{iPhoneNumber}}" data-event-opts="{{[['^input',[['__set_model',['','iPhoneNumber','$event',[]]]]]]}}" class="data-v-e24ad6f2" bind:__l="__l"></u-input>
+    <view class="yanzhengma-box data-v-e24ad6f2">
+      <view class="text0 data-v-e24ad6f2">验证码</view>
+      <view class="input-yanzhengma data-v-e24ad6f2">
+        <u-input vue-id="35a7246c-2" type="number" height="{{80}}" maxlength="{{4}}" custom-style="{{inputStyle}}" placeholder-style="{{placeholderStyle}}" placeholder="请输入验证码" trim="{{true}}" value="{{yanzhengma}}" data-event-opts="{{[['^focus',[['getfocus']]],['^input',[['__set_model',['','yanzhengma','$event',[]]]]]]}}" bind:focus="__e" bind:input="__e" class="data-v-e24ad6f2" bind:__l="__l"></u-input>
+      </view><text data-event-opts="{{[['tap',[['getMsginfo']]]]}}" class="{{['get-yanzhengma data-v-e24ad6f2',watching==true?'get-yanzhengma':'get-yanzhengma disable']}}" bindtap="__e">{{msg}}</text>
+    </view>
+  </view>
+  <u-toast vue-id="35a7246c-3" data-ref="uToast" class="data-v-e24ad6f2 vue-ref" bind:__l="__l"></u-toast><button class="{{['data-v-e24ad6f2',islimit==true?'login-btn disable':'login-btn ']}}" type="primary" disabled="{{islimit}}" data-event-opts="{{[['tap',[['login']]]]}}" bindtap="__e">提 交</button>
+  <u-loading vue-id="35a7246c-4" size="48" show="{{isloading}}" color="#1aad19" class="data-v-e24ad6f2" bind:__l="__l"></u-loading>
+</view>

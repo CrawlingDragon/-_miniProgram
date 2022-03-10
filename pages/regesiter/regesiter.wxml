@@ -1,0 +1,28 @@
+<view class="page data-v-86443310"><text class="title data-v-86443310">石原金牛小程序</text>
+  <view class="sel-option data-v-86443310">
+    <view data-event-opts="{{[['tap',[['selOption',['1']]]]]}}" class="{{['data-v-86443310',cur_index=='1'?'option active':'option']}}" bindtap="__e">农户</view>
+    <view data-event-opts="{{[['tap',[['selOption',['2']]]]]}}" class="{{['data-v-86443310',cur_index=='2'?'option active':'option']}}" bindtap="__e">零售商</view>
+  </view>
+  <block wx:if="{{cur_index=='1'}}">
+    <view class="input-box data-v-86443310">
+      <view class="text0 data-v-86443310">用户名</view><input class="input data-v-86443310" type="text" placeholder-style="color:#C0C4CD" value="{{name}}" placeholder="请输入用户名" maxlength="10" data-event-opts="{{[['input',[['__set_model',['','name','$event',[]]]]]]}}" bindinput="__e" />
+      <view class="text0 data-v-86443310">地址</view>
+      <view data-event-opts="{{[['tap',[['selAddress']]]]}}" class="{{['data-v-86443310',address=='请选择地址'?'input sel-address':'input']}}" bindtap="__e"><text class="data-v-86443310">{{address}}</text>
+        <u-picker vue-id="049d6dec-1" mode="region" area-code="{{['33','3301','330108']}}" params="{{params}}" value="{{show}}" data-event-opts="{{[['^cancel',[['cancel']]],['^confirm',[['confirm']]],['^input',[['__set_model',['','show','$event',[]]]]]]}}" bind:cancel="__e" bind:confirm="__e" bind:input="__e" class="data-v-86443310" bind:__l="__l"></u-picker>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{cur_index=='2'}}">
+    <view class="input-box data-v-86443310">
+      <view class="text0 data-v-86443310">用户名</view><input class="input data-v-86443310" type="text" placeholder-style="color:#C0C4CD" value="{{name}}" placeholder="请输入用户名" maxlength="10" data-event-opts="{{[['input',[['__set_model',['','name','$event',[]]]]]]}}" bindinput="__e" />
+      <view class="text0 data-v-86443310">地址</view>
+      <view data-event-opts="{{[['tap',[['selAddress']]]]}}" class="{{['data-v-86443310',address=='请选择地址'?'input sel-address':'input']}}" bindtap="__e"><text class="data-v-86443310">{{address}}</text>
+        <u-picker vue-id="049d6dec-2" mode="region" area-code="{{['33','3301','330108']}}" params="{{params}}" value="{{show}}" data-event-opts="{{[['^cancel',[['cancel']]],['^confirm',[['confirm']]],['^input',[['__set_model',['','show','$event',[]]]]]]}}" bind:cancel="__e" bind:confirm="__e" bind:input="__e" class="data-v-86443310" bind:__l="__l"></u-picker>
+      </view>
+      <view class="text0 data-v-86443310">店铺名</view><input class="input shopname data-v-86443310" placeholder-style="color:#C0C4CD;font-size:28rpx" type="text" value="{{shopname}}" maxlength="10" placeholder="店铺名" data-event-opts="{{[['input',[['__set_model',['','shopname','$event',[]]]]]]}}" bindinput="__e" />
+    </view>
+  </block><button class="{{['data-v-86443310',isactive==false?'regesiter-btn':'regesiter-btn active-btn']}}" type="default" data-event-opts="{{[['tap',[['regesiter']]]]}}" bindtap="__e">立即注册</button>
+  <u-checkbox bind:input="__e" class="check-box data-v-86443310" vue-id="049d6dec-3" shape="circle" active-color="#1AA93A" value="{{isChecked}}" data-event-opts="{{[['^input',[['__set_model',['','isChecked','$event',[]]]]]]}}" bind:__l="__l" vue-slots="{{['default']}}">
+    <view class="policy data-v-86443310">点击用户同意石原金牛<text data-event-opts="{{[['tap',[['watchAgreement',['1']]]]]}}" class="text1 data-v-86443310" bindtap="__e">用户协议</text>以及<text data-event-opts="{{[['tap',[['watchAgreement',['2']]]]]}}" class="text1 data-v-86443310" bindtap="__e">隐私政策</text></view>
+  </u-checkbox>
+</view>

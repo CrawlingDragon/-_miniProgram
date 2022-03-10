@@ -1,0 +1,1 @@
+<view class="agreement-page data-v-05ed5c16"><view class="content data-v-05ed5c16"><view class="title data-v-05ed5c16">{{''+title+''}}</view><u-parse vue-id="14a62080-1" show-with-animation="{{true}}" html="{{content}}" class="data-v-05ed5c16" bind:__l="__l"></u-parse></view></view>

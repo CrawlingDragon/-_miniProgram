@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "销售支持",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
+  }
+}

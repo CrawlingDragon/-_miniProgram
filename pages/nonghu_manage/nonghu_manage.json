@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "农技示范户管理",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "popup": "/components/popup"
+  }
+}
