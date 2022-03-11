@@ -1,0 +1,22 @@
+{
+  "name": "mp-weixin",
+  "version": "1.0.0",
+  "description": "<!-- 1：重新登录的问题，在农户首页，token=510，登录页的处理 --> <!-- 2：农户首页的红包字段  --> <!-- 3.农户首页的信息提醒红包字段 --> <!-- 用户首页的登录问题，授权失败，是否需要重新授权 --> <!-- 小程序离开后，需要重新等位，否则不需要，使用缓存地址 -->",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrawlingDragon/-_miniProgram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CrawlingDragon/-_miniProgram/issues"
+  },
+  "homepage": "https://github.com/CrawlingDragon/-_miniProgram#readme",
+  "dependencies": {
+    "@miniprogram-component-plus/index-list": "^1.0.0"
+  }
+}

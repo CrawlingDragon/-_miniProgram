@@ -1,0 +1,5 @@
+<!--pages/crop/crop.wxml-->
+<text>pages/crop/crop.wxml</text>
+<button bindtap="goback">
+  确定
+</button>

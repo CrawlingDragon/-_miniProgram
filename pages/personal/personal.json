@@ -6,6 +6,7 @@
     "u-field": "/uview-ui/components/u-field/u-field",
     "u-picker": "/uview-ui/components/u-picker/u-picker",
     "u-action-sheet": "/uview-ui/components/u-action-sheet/u-action-sheet",
-    "popup": "/components/popup"
+    "mp-dialog": "weui-miniprogram/dialog/dialog",
+    "index_list": "/components/index_list/index_list"
   }
 }

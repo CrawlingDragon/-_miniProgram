@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "隐私政策",
-  "enablePullDownRefresh": false,
   "usingComponents": {
     "u-parse": "/uview-ui/components/u-parse/u-parse"
   }

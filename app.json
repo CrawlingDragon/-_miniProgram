@@ -30,7 +30,11 @@
     "pages/nonghu_detail/nonghu_detail",
     "pages/product_trace_detail/product_trace_detail",
     "pages/retailer_detail/retailer_detail",
-    "pages/redbag_log/redbag_log"
+    "pages/redbag_log/redbag_log",
+    "pages/authentication/authentication",
+    "pages/message_list/message_list",
+    "pages/message_detail/message_detail",
+    "pages/crop/crop"
   ],
   "subPackages": [],
   "window": {
