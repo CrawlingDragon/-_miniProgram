@@ -1,2 +1,14 @@
 <!--pages/message_list/message_list.wxml-->
-<text>pages/message_list/message_list.wxml</text>
+<block wx:if="{{message_list.length >= 1}}">
+  <view class="message-ul">
+    <view class="message-li" wx:for="{{message_list}}" wx:key="id" bindtap="openMessageDetail" data-id="{{item.id}}">
+      <text class="title">{{item.title}} </text>
+      <text class="time">{{item.create_at}}</text>
+    </view>
+  </view>
+  <view wx:if="{{loading}}" class="loading-text">{{loading_text}}</view>
+  <view wx:if="{{noMore}}" class="loading-text">{{noMore_text}}</view>
+</block>
+<view wx:else class="no-data">
+  暂无数据
+</view>
