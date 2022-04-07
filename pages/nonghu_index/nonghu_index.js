@@ -1,5 +1,6 @@
 const app = getApp();
 import { getLocation } from "../../common/local.js";
+import scanCodeFn from "../../common/scanCode.js";
 
 Page({
   /**
@@ -9,12 +10,13 @@ Page({
     perinfo: "",
     // 0 为一般农户，1为农技示范户
     isExpert: 0,
+    is_notice: 0,
     points: [
       {
         index: "1",
         text: "用药记录",
         url: "../medication_record/medication_record",
-        isExpert: false,
+        isExpert: true,
       },
       {
         index: "2",
@@ -25,7 +27,7 @@ Page({
       {
         index: "3",
         text: "扫码领红包",
-        url: "../upload_share/upload_share",
+        url: "../saomalinghongbao/saomalinghongbao",
         isExpert: false,
       },
       {
@@ -37,8 +39,8 @@ Page({
       {
         index: "5",
         text: "信息提醒",
-        url: "../upload_share/upload_share",
-        isExpert: true,
+        url: "../message_list/message_list",
+        isExpert: false,
       },
     ],
   },
@@ -54,32 +56,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    //获取定位权限，并完成坐标逆分析，
     getLocation();
-    // wx.getLocation({
-    //   type: "wgs84",
-    //   success(res) {
-    //     const latitude = res.latitude;
-    //     const longitude = res.longitude;
-    //     const speed = res.speed;
-    //     const accuracy = res.accuracy;
-    //     console.log(res);
-    //     qqmapsdk.reverseGeocoder({
-    //       location: { latitude, longitude }, //获取表单传入的位置坐标,不填默认当前位置,示例为string格式
-    //       //get_poi: 1, //是否返回周边POI列表：1.返回；0不返回(默认),非必须参数
-    //       success: function (res) {
-    //         //成功后的回调
-    //         console.log("res", res);
-    //         var res = res.result;
-    //       },
-    //       fail(e) {
-    //         console.log(e);
-    //       },
-    //     });
-    //   },
-    // });
   },
-
+  onShow() {},
   getPerInfo: function () {
+    // 获取用户信息接口
     let token = wx.getStorageSync("token");
     wx.request({
       url: app.globalData.baseUrl + "member/user/get_user_info",
@@ -92,6 +74,7 @@ Page({
           this.setData({
             perinfo: res.data.data,
             isExpert: res.data.data.is_expert,
+            is_notice: res.data.data.is_notice,
           });
         } else if (data.code === 510) {
           //token 过期的情况
@@ -109,9 +92,27 @@ Page({
   },
 
   selPoints: function (e) {
-    console.log(e);
+    // 点击农户首页的功能列表
+    const isRedBagPage = e.currentTarget.dataset.text === "红包日志"; //判断是否是 红包日志页
+    const isGetRedBag = e.currentTarget.dataset.text === "扫码领红包"; //判断是否是 扫码领红包页
+    const url = e.currentTarget.dataset.url;
+
+    if (isRedBagPage) {
+      //如果是信息提醒，点击取消红点
+      this.setData({
+        is_notice: 0,
+      });
+    }
+
+    if (isGetRedBag) {
+      // 如果是扫码领红包item
+      scanCodeFn();
+      return;
+    }
     // 用药记录，上传分享截图等功能去的页面
-    wx.navigateTo({ url: e.currentTarget.dataset.url });
+    wx.navigateTo({
+      url: url,
+    });
   },
   modefiy: function () {
     // 路由到个人信息编辑主页

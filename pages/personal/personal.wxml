@@ -5,13 +5,12 @@
         <view class="left data-v-09a960fa">头像</view>
         <view class="right data-v-09a960fa">
           <view class="image data-v-09a960fa">
-            <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" style="width: 100px;height: 100px;opacity: 0;position: absolute;z-index: 111;">
+            <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" style="width: 100px;height: 100px;opacity: 0;position: absolute;z-index: 2;">
             </button>
-
             <u-image vue-id="ffa91980-1" width="{{130}}" height="{{130}}" shape="circle" src="{{src}}" class="data-v-09a960fa">
             </u-image>
           </view>
-          <u-icon class="icon data-v-09a960fa" vue-id="ffa91980-2" name="arrow-right" bind:__l="__l"></u-icon>
+          <u-icon class="icon data-v-09a960fa" vue-id="ffa91980-2" name="arrow-right"></u-icon>
         </view>
       </view>
     </view>
@@ -20,23 +19,28 @@
       <u-field bind:input="__e" vue-id="ffa91980-3" label="用户名" field-style="{{fieldstyle}}" input-align="{{inputAlign}}" disabled="{{true}}" value="{{mobile}}" data-event-opts="{{[['^input',[['__set_model',['','mobile','$event',[]]]]]]}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
 
       <!-- 名字 -->
-      <u-field bind:input="__e" vue-id="ffa91980-4" label="名字" maxlength="{{10}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{username}}" data-event-opts="{{[['^input',[['__set_model',['','username','$event',[]]]]]]}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
+      <u-field bind:input="__e" vue-id="ffa91980-4" label="名字" maxlength="{{10}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{realname}}" bindinput="setInputValue" data-key="realname" class="data-v-09a960fa"></u-field>
 
-
+      <!-- 店铺名 -->
+      <block wx:if="{{usertype=='2'}}">
+        <u-field bind:input="__e" vue-id="ffa91980-5" label="店铺名" maxlength="{{10}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{shopname}}" class="data-v-09a960fa" bindinput="setInputValue" data-key="shopname"></u-field>
+      </block>
       <!-- 所在地 -->
-      <picker mode="region" bindchange="bindRegionChange" value="{{address}}">
-        <u-field vue-id="ffa91980-6" label="所在地" input-align="{{inputAlign}}" disabled="{{true}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{address}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
+      <picker mode="region" bindchange="bindRegionChange" value="{{addressValue}}">
+        <u-field vue-id="ffa91980-6" label="所在地" input-align="{{inputAlign}}" disabled="{{true}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{addressValue}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
       </picker>
 
       <!-- 详细地址 -->
       <u-field label="详细地址" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{detailAddress}}" class=" data-v-09a960fa" bindinput="writeDetailAddress"></u-field>
 
       <!-- 作物 -->
-      <u-field label="作物" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{crop}}" class=" data-v-09a960fa" bindtap="chooseCrop" disabled="{{true}}"></u-field>
+      <block wx:if="{{usertype=='1'}}">
+        <u-field label="作物" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{crop}}" class=" data-v-09a960fa" bindtap="chooseCrop" disabled="{{true}}"></u-field>
+      </block>
 
-      <!-- 店铺名 -->
-      <block wx:if="{{usertype=='2'}}">
-        <u-field bind:input="__e" vue-id="ffa91980-5" label="店铺名" maxlength="{{10}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{shopname}}" data-event-opts="{{[['^input',[['__set_model',['','shopname','$event',[]]]]]]}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
+      <!-- 身份认证 -->
+      <block wx:if="{{usertype !=='3'}}">
+        <u-field label="{{usertype =='1'?'零售商身份认证':'身份认证'}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{is_shop_auth}}" class=" data-v-09a960fa" disabled="{{true}}" bindtap="goToApprove"></u-field>
       </block>
 
     </view>
@@ -68,25 +72,25 @@
     保存
   </button>
 
-
 </view>
 <!-- 选择作物的弹窗 -->
-<page-container show="{{pageContainerShow}}" round="{{round}}" overlay="{{overlay}}" duration="{{duration}}" position="center" close-on-slide-down="{{false}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter" bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay" custom-style="{{customStyle}}" overlay-style="{{overlayStyle}}">
+<page-container show="{{pageContainerShow}}" round="{{round}}" overlay="{{overlay}}" duration="{{duration}}" position="center" close-on-slide-down="{{false}}" bindclickoverlay="onClickOverlay" custom-style="{{customStyle}}" overlay-style="{{overlayStyle}}">
   <view class="detail-page">
-    <index_list></index_list>
-    <view class="crop-list">
-      <view class="item">
-        <text class="crop-name">小麦</text>
-        <view class="delete-btn">删除</view>
-      </view>
-      <view class="item">
-        <text class="crop-name">小麦</text>
-        <view class="delete-btn">删除</view>
-      </view>
+    <index_list wx:if="{{chooseCropContentShow}}" bind:myevent="onChoose"></index_list>
+    <view class="crop-list" wx:if="{{crop.length > 0}}">
+      <block wx:for="{{crop}}" wx:key="*this">
+        <view class="item">
+          <view class="crop-name">{{item}}</view>
+          <view class="delete-btn" data-crop="{{item}}" catchtap="deleteCrop">删除</view>
+        </view>
+      </block>
     </view>
+    <block wx:if="{{crop.length == 0}}">
+      <view class="no-crop">暂无数据</view>
+    </block>
     <view class="foot-btns">
-      <view class="btn1 btn">完成</view>
-      <view class="btn2 btn">添加</view>
+      <view class="btn1 btn" catchtap="closeCrop">完成</view>
+      <view class="btn2 btn {{crop.length >= 3?'disabled':''}}" catchtap="addCrop">添加</view>
     </view>
   </view>
 </page-container>

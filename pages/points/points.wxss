@@ -1,0 +1,83 @@
+/* pages/points/points.wxss */
+.point-head {
+  background: #ffffff;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.point-head .left {
+  padding-left: 30rpx;
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.point-head .right {
+  width: 240rpx;
+  border-left: 1rpx solid #e5e5e5;
+  height: 100%;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.point-head .right .picker {
+  display: flex;
+  align-items: center;
+}
+.point-head .right .icon {
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 10rpx;
+}
+.scroll-box {
+  margin-top: 20rpx;
+}
+.li-wrap {
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 35rpx 30rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.li-wrap .name {
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #333333;
+  margin-right: 180rpx;
+}
+.li-wrap .number-bar {
+  display: flex;
+  font-size: 28rpx;
+  color: #333333;
+}
+.li-wrap .number-bar .item {
+  margin-right: 40rpx;
+}
+.li-wrap .number-bar .item.has_deduct_scroe {
+  color: #ea5413;
+}
+.li-wrap .btn {
+  position: absolute;
+  right: 30rpx;
+  font-size: 24rpx;
+}
+.li-wrap .btn.convert {
+  width: 130rpx;
+  height: 60rpx;
+  background: #1aa93a;
+  border-radius: 7rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+}
+.li-wrap .btn.converted {
+  font-weight: 400;
+  color: #999999;
+  top: 42rpx;
+}

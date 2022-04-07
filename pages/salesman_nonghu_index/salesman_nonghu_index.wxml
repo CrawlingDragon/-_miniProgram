@@ -1,0 +1,10 @@
+<view class="item-wrap">
+  <view class="item" data-index="1" bindtap="navgiatePage">农技示范户管理</view>
+  <view class="item" data-index="2" bindtap="navgiatePage">技术分享
+    <view class="read-icon" wx:if="{{has_share == 1}}"></view>
+  </view>
+  <view class="item" data-index="3" bindtap="navgiatePage">农技示范记录
+    <view class="read-icon" wx:if="{{has_crop == 1}}"></view>
+  </view>
+  <view class="item" data-index="4" bindtap="navgiatePage">红包日志</view>
+</view>

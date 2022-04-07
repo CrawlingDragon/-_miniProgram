@@ -1,2 +1,18 @@
 <!--pages/redbag_log.wxml-->
-<text>pages/redbag_log.wxml</text>
+<view class="rb-log-container">
+  <view class="rb-log-head" wx:if="{{redBag_list.length >= 1 }}">
+    红包 ¥100.00
+  </view>
+  <view class="rb-log-ul">
+    <view class="rb-log-li" wx:for="{{redBag_list}}" wx:key="price">
+      <view class="rb-name">复合肥 500g</view>
+      <view class="rb-create_at">2022-1-23 9:00</view>
+      <view class="price">¥5123123.00</view>
+    </view>
+  </view>
+  <view wx:if="{{loading}}" class="loading-text">{{loading_text}}</view>
+  <view wx:if="{{noMore && page !== 1}}" class="loading-text">{{noMore_text}}</view>
+  <view wx:if="{{redBag_list.length === 0 }}" class="no-data">
+    暂无红包
+  </view>
+</view>

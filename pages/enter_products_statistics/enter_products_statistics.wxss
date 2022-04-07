@@ -1,2 +1,107 @@
-.tongji-page.data-v-3b692125{height:100%;width:100%;overflow:auto}.tongji-page .sel-option.data-v-3b692125{display:-webkit-box;display:-webkit-flex;display:flex;background-color:#fff;line-height:100rpx;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;border-top:1rpx solid rgba(0,0,0,.1);font-family:Microsoft YaHei;font-weight:Regular;font-size:30rpx;color:#333}.tongji-page .sel-option .option.data-v-3b692125{-webkit-box-flex:1;-webkit-flex:1;flex:1;text-align:center;box-sizing:border-box}.tongji-page .sel-option .option.data-v-3b692125:nth-child(1),
-.tongji-page .sel-option .option.data-v-3b692125:nth-child(2){border-right:1rpx solid rgba(0,0,0,.1)}.tongji-page .sel-option .option .icon.data-v-3b692125{padding-left:19rpx}.tongji-page .search-box.data-v-3b692125{margin:30rpx 25rpx}.tongji-page .products-list.data-v-3b692125{font-family:Microsoft YaHei;font-weight:Regular;font-size:28rpx;color:#999;height:calc(100% - 102rpx - 140rpx);box-sizing:border-box}.tongji-page .products-list .single-product.data-v-3b692125{padding:30rpx 25rpx;background-color:#fff;border-bottom:1rpx solid rgba(0,0,0,.1)}.tongji-page .products-list .single-product .pro-name.data-v-3b692125{color:#333;font-size:38rpx}.tongji-page .products-list .single-product .pro-type.data-v-3b692125{margin:8rpx 0}.tongji-page .products-list .single-product .pro-type .all-pro.data-v-3b692125{float:right}.tongji-page .products-list .single-product .pro-type .out-pro.data-v-3b692125{float:right;margin-right:30rpx}.tongji-page .products-list .single-product .pro-type .enter-pro.data-v-3b692125{float:right;margin-right:30rpx}.tongji-page .products-list .single-product .timer.data-v-3b692125{clear:both}.tongji-page .no-data.data-v-3b692125{font-family:Microsoft YaHei;font-weight:Regular;color:#999;font-size:30rpx;margin-top:180rpx;text-align:center}
+.tongji-page.data-v-3b692125 {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.tongji-page .sel-option.data-v-3b692125 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  background-color: #fff;
+  line-height: 100rpx;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 30rpx;
+  color: #333;
+}
+.tongji-page .sel-option .option.data-v-3b692125 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: center;
+  box-sizing: border-box;
+}
+.tongji-page .sel-option .option.data-v-3b692125:nth-child(1),
+.tongji-page .sel-option .option.data-v-3b692125:nth-child(2) {
+  border-right: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.tongji-page .sel-option .option .icon.data-v-3b692125 {
+  padding-left: 19rpx;
+}
+.tongji-page .search-box.data-v-3b692125 {
+  margin: 30rpx 25rpx;
+}
+.tongji-page .products-list.data-v-3b692125 {
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 28rpx;
+  color: #999;
+  height: calc(100% - 102rpx - 140rpx);
+  box-sizing: border-box;
+}
+.tongji-page .products-list .single-product.data-v-3b692125 {
+  padding: 30rpx 25rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.tongji-page .products-list .single-product .pro-name.data-v-3b692125 {
+  color: #333;
+  font-size: 38rpx;
+}
+.tongji-page .products-list .single-product .pro-type.data-v-3b692125 {
+  margin: 8rpx 0;
+}
+.tongji-page .products-list .single-product .pro-type .all-pro.data-v-3b692125 {
+  float: right;
+}
+.tongji-page .products-list .single-product .pro-type .out-pro.data-v-3b692125 {
+  float: right;
+  margin-right: 30rpx;
+}
+.tongji-page
+  .products-list
+  .single-product
+  .pro-type
+  .enter-pro.data-v-3b692125 {
+  float: right;
+  margin-right: 30rpx;
+}
+.tongji-page .products-list .single-product .timer.data-v-3b692125 {
+  clear: both;
+}
+.tongji-page .no-data.data-v-3b692125 {
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 180rpx;
+  text-align: center;
+}
+.time-text {
+  float: right;
+}
+.ponits-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 222;
+}
+.ponits-bar .ponit {
+  width: 619rpx;
+  height: 80rpx;
+  background: #1aa93a;
+  border-radius: 7rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+}

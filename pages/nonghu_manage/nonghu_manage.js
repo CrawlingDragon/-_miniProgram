@@ -177,8 +177,7 @@
               watchNongDetail: function (e) {
                 console.log(e),
                   t.navigateTo({
-                    url:
-                      "../nonghu_detail/nonghu_detail?user_id=" + e.farmer_id,
+                    url: "../nonghu_detail/nonghu_detail?user_id=" + e.user_id,
                   });
               },
               search: function (t) {
@@ -270,6 +269,51 @@
               },
               getaddValue: function (t) {
                 (this.addfarmer = t), this.addFarmer();
+              },
+              setExpert(e) {
+                //设置或取消专家
+                let is_expert = e.is_expert; //0是非专家，1是专家
+                let user_id = e.user_id; //用户id
+                let set_val = ""; //1是设置专家，2是取消专家
+                let modalTitle = "";
+                if (is_expert === 0) {
+                  //0表示非专家
+                  modalTitle = "确定设置为农技示范户吗？";
+                  set_val = 1;
+                } else {
+                  modalTitle = "确定取消设置吗？";
+                  set_val = 2;
+                }
+                wx.showModal({
+                  content: modalTitle,
+                  success: (res) => {
+                    if (res.confirm) {
+                      this.ajaxSetExpert(user_id, set_val);
+                    }
+                    if (res.cancel) {
+                    }
+                  },
+                });
+              },
+              ajaxSetExpert(user_id, set_val) {
+                let token = wx.getStorageSync("token");
+                wx.request({
+                  url: app.globalData.baseUrl + "/member/farmer/set_expert",
+                  method: "POST",
+                  data: { token, user_id, set_val },
+                  success: (res) => {
+                    // console.log(res);
+                    let data = res.data;
+                    wx.showToast({
+                      icon: "none",
+                      title: data.msg,
+                    });
+                    if (data.code === 1) {
+                      this.page = 1;
+                      this.getFarmerList(this.page, this.pagesize, "");
+                    }
+                  },
+                });
               },
             },
           };

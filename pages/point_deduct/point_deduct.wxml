@@ -1,0 +1,22 @@
+<!-- 扣减理由 -->
+<block wx:for="{{list}}" wx:key="create_at">
+  <view class="item">
+    <view class="name">{{item.product_name}}</view>
+    <view class="line">
+      <view class="label">规格：</view>
+      <view class="text">{{item.product_spec}}</view>
+    </view>
+    <view class="line">
+      <view class="label">时间：</view>
+      <view class="text">{{item.create_at}}</view>
+    </view>
+    <view class="line">
+      <view class="label">原因：</view>
+      <view class="text">{{item.desc}}</view>
+    </view>
+    <view class="line">
+      <view class="label">扣减积分：</view>
+      <view class="text">{{item.score}}</view>
+    </view>
+  </view>
+</block>

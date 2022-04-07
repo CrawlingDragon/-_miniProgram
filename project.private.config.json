@@ -16,10 +16,24 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/personal/personal",
-          "query": "",
+          "pathName": "pages/nonghu_detail/nonghu_detail",
+          "query": "user_id=155",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "",
+          "pathName": "pages/salesman_nonghu_index/salesman_nonghu_index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/medication_record_detail/medication_record_detail",
+          "query": "from=yewuyuan&crop_code=7226258172",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

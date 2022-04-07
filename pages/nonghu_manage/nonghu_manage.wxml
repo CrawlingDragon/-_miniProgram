@@ -1,1 +1,38 @@
-<view class="nonghu-manage-page data-v-e6da11ee"><view class="search-box data-v-e6da11ee"><u-search vue-id="cda2ccf8-1" placeholder="请输入姓名或手机号" bg-color="#FFFFFF" show-action="{{false}}" height="{{80}}" shape="{{squre}}" searchIconColor="{{placeholder_color}}" placeholder-color="{{placeholder_color}}" value="{{keyword}}" data-event-opts="{{[['^search',[['search']]],['^input',[['__set_model',['','keyword','$event',[]]]]]]}}" bind:search="__e" bind:input="__e" class="data-v-e6da11ee" bind:__l="__l"></u-search></view><block wx:if="{{farmer_list.length!=0}}"><scroll-view class="nonghu-list data-v-e6da11ee" scroll-y="{{true}}" scroll-x="{{false}}" data-event-opts="{{[['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindscrolltolower="__e"><block wx:for="{{farmer_list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['watchNongDetail',['$0'],[[['farmer_list','',index]]]]]]]}}" class="single-nonghu data-v-e6da11ee" bindtap="__e"><view class="nonghu-pic data-v-e6da11ee"><u-image vue-id="{{'cda2ccf8-2-'+index}}" width="130rpx" height="130rpx" shape="circle" src="{{item.avatar}}" class="data-v-e6da11ee" bind:__l="__l"></u-image></view><view class="nonghu-info data-v-e6da11ee"><view class="item1 data-v-e6da11ee">{{''+item.realname+''}}</view><view class="item2 data-v-e6da11ee">{{''+item.mobile+''}}</view><view class="item2 data-v-e6da11ee">{{''+item.address+''}}</view></view><view class="del-btn-box data-v-e6da11ee"><block wx:if="{{item.del_status==1}}"><view data-event-opts="{{[['tap',[['deleted',['$0'],[[['farmer_list','',index]]]]]]]}}" class="del-btn data-v-e6da11ee" catchtap="__e">删除</view></block></view></view></block><u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-e6da11ee" vue-id="cda2ccf8-3" margin-top="{{20}}" margin-bottom="{{20}}" status="{{status}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore></scroll-view></block><block wx:if="{{farmer_list.length==0}}"><view class="no-data data-v-e6da11ee">暂无数据</view></block><popup vue-id="cda2ccf8-4" title="{{title}}" isshow="{{isshow}}" popuptype="{{popuptype}}" data-event-opts="{{[['^getShowStatus',[['getShowStatus']]],['^getaddValue',[['getaddValue']]],['^clickItem',[['clickItem']]]]}}" bind:getShowStatus="__e" bind:getaddValue="__e" bind:clickItem="__e" class="data-v-e6da11ee" bind:__l="__l"></popup><view class="add-btn-box data-v-e6da11ee"><button class="add_btn data-v-e6da11ee" type="primary" data-event-opts="{{[['tap',[['addNonghu']]]]}}" bindtap="__e">添加农户</button></view></view>
+<view class="nonghu-manage-page data-v-e6da11ee">
+  <view class="search-box data-v-e6da11ee">
+    <u-search vue-id="cda2ccf8-1" placeholder="请输入姓名或手机号" bg-color="#FFFFFF" show-action="{{false}}" height="{{80}}" shape="{{squre}}" searchIconColor="{{placeholder_color}}" placeholder-color="{{placeholder_color}}" value="{{keyword}}" data-event-opts="{{[['^search',[['search']]],['^input',[['__set_model',['','keyword','$event',[]]]]]]}}" bind:search="__e" bind:input="__e" class="data-v-e6da11ee" bind:__l="__l"></u-search>
+  </view>
+  <block wx:if="{{farmer_list.length!=0}}">
+    <scroll-view class="nonghu-list data-v-e6da11ee" scroll-y="{{true}}" scroll-x="{{false}}" data-event-opts="{{[['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindscrolltolower="__e">
+      <block wx:for="{{farmer_list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view data-event-opts="{{[['tap',[['watchNongDetail',['$0'],[[['farmer_list','',index]]]]]]]}}" class="single-nonghu data-v-e6da11ee" bindtap="__e">
+          <view class="nonghu-pic data-v-e6da11ee">
+            <u-image vue-id="{{'cda2ccf8-2-'+index}}" width="130rpx" height="130rpx" shape="circle" src="{{item.avatar}}" class="data-v-e6da11ee" bind:__l="__l"></u-image>
+          </view>
+          <view class="nonghu-info data-v-e6da11ee">
+            <view class="item1 data-v-e6da11ee">
+              {{''+item.realname+''}}
+              <view class="small-title" wx:if="{{item.is_expert === 1}}">示范</view>
+            </view>
+            <view class="item2 data-v-e6da11ee" wx:if="{{item.points !== 0}}">积分:{{''+item.points+''}}</view>
+            <view class="item2 data-v-e6da11ee">{{''+item.mobile+''}}</view>
+            <view class="item2 data-v-e6da11ee">{{''+item.address+''}}</view>
+          </view>
+          <view class="set-btn {{item.is_expert === 1?'cancel-set-btn':''}}" catchtap="setExpert" data-user-id="{{item.user_id}}" catchtap="__e" data-event-opts="{{[['tap',[['setExpert',['$0'],[[['farmer_list','',index]]]]]]]}}">{{item.is_expert === 1?'取消':'设置'}}</view>
+          <view class="del-btn-box data-v-e6da11ee">
+            <block wx:if="{{item.del_status==1}}">
+              <view data-event-opts="{{[['tap',[['deleted',['$0'],[[['farmer_list','',index]]]]]]]}}" class="del-btn data-v-e6da11ee" catchtap="__e">删除</view>
+            </block>
+          </view>
+        </view>
+      </block>
+      <u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-e6da11ee" vue-id="cda2ccf8-3" margin-top="{{20}}" margin-bottom="{{20}}" status="{{status}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore>
+    </scroll-view>
+  </block>
+  <block wx:if="{{farmer_list.length==0}}">
+    <view class="no-data data-v-e6da11ee">暂无数据</view>
+  </block>
+  <popup vue-id="cda2ccf8-4" title="{{title}}" isshow="{{isshow}}" popuptype="{{popuptype}}" data-event-opts="{{[['^getShowStatus',[['getShowStatus']]],['^getaddValue',[['getaddValue']]],['^clickItem',[['clickItem']]]]}}" bind:getShowStatus="__e" bind:getaddValue="__e" bind:clickItem="__e" class="data-v-e6da11ee" bind:__l="__l"></popup>
+  <view class="add-btn-box data-v-e6da11ee"><button class="add_btn data-v-e6da11ee" type="primary" data-event-opts="{{[['tap',[['addNonghu']]]]}}" bindtap="__e">添加农户</button>
+  </view>
+</view>

@@ -34,7 +34,13 @@
     "pages/authentication/authentication",
     "pages/message_list/message_list",
     "pages/message_detail/message_detail",
-    "pages/crop/crop"
+    "pages/crop/crop",
+    "pages/points/points",
+    "pages/point_deduct/point_deduct",
+    "pages/approve/approve",
+    "pages/salesman_nonghu_index/salesman_nonghu_index",
+    "pages/salesman_retailer_index/salesman_retailer_index",
+    "pages/salesman_sell_index/salesman_sell_index"
   ],
   "subPackages": [],
   "window": {

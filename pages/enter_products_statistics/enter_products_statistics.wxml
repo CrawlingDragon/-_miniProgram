@@ -1,1 +1,48 @@
-<view class="tongji-page data-v-3b692125"><view class="sel-option data-v-3b692125"><view data-event-opts="{{[['tap',[['sel_start_time']]]]}}" class="option data-v-3b692125" bindtap="__e">{{''+(start_time==""?"开始时间":start_time)+''}}<u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-1" name="{{icon1}}" bind:__l="__l"></u-icon><u-calendar vue-id="5c6d2f60-2" mode="{{mode}}" max-date="{{end_time}}" value="{{start_time_show}}" data-event-opts="{{[['^change',[['startChange']]],['^input',[['__set_model',['','start_time_show','$event',[]]]]]]}}" bind:change="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-calendar></view><view data-event-opts="{{[['tap',[['sel_end_time']]]]}}" class="option data-v-3b692125" bindtap="__e"><u-calendar vue-id="5c6d2f60-3" mode="{{mode}}" min-date="{{start_time}}" value="{{end_time_show}}" data-event-opts="{{[['^change',[['endChange']]],['^input',[['__set_model',['','end_time_show','$event',[]]]]]]}}" bind:change="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-calendar>{{''+(end_time==""?"结束时间":end_time)+''}}<u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-4" name="{{icon2}}" bind:__l="__l"></u-icon></view><view data-event-opts="{{[['tap',[['selStatus']]]]}}" class="option data-v-3b692125" bindtap="__e">{{''+status+''}}<u-action-sheet vue-id="5c6d2f60-5" list="{{statusList}}" cancel-btn="{{false}}" border-radius="{{17}}" value="{{status_show}}" data-event-opts="{{[['^click',[['clickItem']]],['^input',[['__set_model',['','status_show','$event',[]]]]]]}}" bind:click="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-action-sheet><u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-6" name="{{icon3}}" bind:__l="__l"></u-icon></view></view><view class="search-box data-v-3b692125"><u-search vue-id="5c6d2f60-7" placeholder="请输入商品名称" bg-color="#FFFFFF" show-action="{{false}}" height="{{80}}" shape="{{squre}}" searchIconColor="{{placeholder_color}}" placeholder-color="{{placeholder_color}}" value="{{keyword}}" data-event-opts="{{[['^search',[['search']]],['^input',[['__set_model',['','keyword','$event',[]]]]]]}}" bind:search="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-search></view><block wx:if="{{result_list.length!=0}}"><scroll-view class="products-list data-v-3b692125" scroll-y="{{true}}" scroll-x="{{false}}" data-event-opts="{{[['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindscrolltolower="__e"><block wx:for="{{result_list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block wx:if="{{res.data.data.list!=0}}"><view class="single-product data-v-3b692125"><view class="pro-name _p data-v-3b692125">{{''+item.product_name+" "+item.product_component+''}}</view><view class="pro-type data-v-3b692125"><text class="type data-v-3b692125">{{item.product_spec}}</text><block wx:if="{{status=='合计'}}"><text class="all-pro data-v-3b692125">{{"总计："+item.number_stock}}</text></block><block wx:if="{{status=='退货'||status=='合计'}}"><text class="out-pro data-v-3b692125">{{"退货："+item.back_stock}}</text></block><block wx:if="{{status=='进货'||status=='合计'}}"><text class="enter-pro data-v-3b692125">{{"进货："+item.enter_stock}}</text></block></view><view class="time data-v-3b692125">{{''+item.stock_date+''}}</view></view></block></block><u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-3b692125" vue-id="5c6d2f60-8" margin-top="{{20}}" margin-bottom="{{20}}" status="{{loadstatus}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore></scroll-view></block><block wx:if="{{result_list.length==0}}"><view class="no-data data-v-3b692125">暂无数据</view></block></view>
+<view class="tongji-page data-v-3b692125">
+  <view class="sel-option data-v-3b692125">
+    <view data-event-opts="{{[['tap',[['sel_start_time']]]]}}" class="option data-v-3b692125" bindtap="__e">{{''+(start_time==""?"开始时间":start_time)+''}}<u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-1" name="{{icon1}}" bind:__l="__l"></u-icon>
+      <u-calendar vue-id="5c6d2f60-2" mode="{{mode}}" max-date="{{end_time}}" value="{{start_time_show}}" data-event-opts="{{[['^change',[['startChange']]],['^input',[['__set_model',['','start_time_show','$event',[]]]]]]}}" bind:change="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-calendar>
+    </view>
+    <view data-event-opts="{{[['tap',[['sel_end_time']]]]}}" class="option data-v-3b692125" bindtap="__e">
+      <u-calendar vue-id="5c6d2f60-3" mode="{{mode}}" min-date="{{start_time}}" value="{{end_time_show}}" data-event-opts="{{[['^change',[['endChange']]],['^input',[['__set_model',['','end_time_show','$event',[]]]]]]}}" bind:change="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-calendar>{{''+(end_time==""?"结束时间":end_time)+''}}<u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-4" name="{{icon2}}" bind:__l="__l"></u-icon>
+    </view>
+    <view data-event-opts="{{[['tap',[['selStatus']]]]}}" class="option data-v-3b692125" bindtap="__e">{{''+status+''}}<u-action-sheet vue-id="5c6d2f60-5" list="{{statusList}}" cancel-btn="{{false}}" border-radius="{{17}}" value="{{status_show}}" data-event-opts="{{[['^click',[['clickItem']]],['^input',[['__set_model',['','status_show','$event',[]]]]]]}}" bind:click="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-action-sheet>
+      <u-icon class="icon data-v-3b692125" vue-id="5c6d2f60-6" name="{{icon3}}" bind:__l="__l"></u-icon>
+    </view>
+  </view>
+  <view class="search-box data-v-3b692125">
+    <u-search vue-id="5c6d2f60-7" placeholder="请输入商品名称" bg-color="#FFFFFF" show-action="{{false}}" height="{{80}}" shape="{{squre}}" searchIconColor="{{placeholder_color}}" placeholder-color="{{placeholder_color}}" value="{{keyword}}" data-event-opts="{{[['^search',[['search']]],['^input',[['__set_model',['','keyword','$event',[]]]]]]}}" bind:search="__e" bind:input="__e" class="data-v-3b692125" bind:__l="__l"></u-search>
+  </view>
+  <block wx:if="{{result_list.length!=0}}">
+    <scroll-view class="products-list data-v-3b692125" scroll-y="{{true}}" scroll-x="{{false}}" data-event-opts="{{[['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindscrolltolower="__e">
+      <block wx:for="{{result_list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <block wx:if="{{res.data.data.list!=0}}">
+          <view class="single-product data-v-3b692125">
+            <view class="pro-name _p data-v-3b692125">{{''+item.product_name+" "+item.product_component+''}}</view>
+            <view class="pro-type data-v-3b692125"><text class="type data-v-3b692125">{{item.product_spec}}</text>
+              <block wx:if="{{status=='合计'}}"><text class="all-pro data-v-3b692125">{{"总计："+item.number_stock}}</text></block>
+              <block wx:if="{{status=='退货'||status=='合计'}}">
+                <text class="out-pro data-v-3b692125" wx:if="{{item.back_stock != 0}}">退货：{{item.back_stock}}
+                </text>
+              </block>
+              <block wx:if="{{status=='进货'||status=='合计'}}">
+                <text class="enter-pro data-v-3b692125">进货：{{item.enter_stock}}</text>
+              </block>
+            </view>
+            <view class="time data-v-3b692125">{{''+item.stock_date+''}}
+              <text class="time-text">积分:{{item.points}}</text>
+            </view>
+          </view>
+        </block>
+      </block>
+      <u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-3b692125" vue-id="5c6d2f60-8" margin-top="{{20}}" margin-bottom="{{140}}" status="{{loadstatus}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore>
+    </scroll-view>
+  </block>
+  <block wx:if="{{result_list.length==0}}">
+    <view class="no-data data-v-3b692125">暂无数据</view>
+  </block>
+  <view class="ponits-bar">
+    <navigator class="ponit" url="/pages/points/points">积分兑换</navigator>
+    <!-- <view></view> -->
+  </view>
+</view>

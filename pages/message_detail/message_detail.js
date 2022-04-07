@@ -1,66 +1,35 @@
 // pages/message_detail/message_detail.js
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: "",
+    detailData: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { id } = options;
+    this.getMessageDetail(id);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getMessageDetail(id) {
+    let token = wx.getStorageSync("token");
+    wx.request({
+      url: app.globalData.baseUrl + "member/notice/notice_detail",
+      method: "Post",
+      data: { id, token },
+      success: (res) => {
+        let data = res.data;
+        if (data.code === 1) {
+          this.setData({
+            detailData: data.data,
+          });
+        }
+      },
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

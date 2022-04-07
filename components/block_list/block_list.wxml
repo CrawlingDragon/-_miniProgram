@@ -1,0 +1,9 @@
+<!--components/block_list/block_list.wxml-->
+<view class="function-points data-v-3235c4e5">
+  <block wx:for="{{points}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="single-points data-v-3235c4e5" bindtap="selPoints" data-url="{{item.url}}" data-text="{{item.text}}" wx:if="{{(!item.isExpert) || (item.isExpert && isExpert === 1)}}">
+      {{item.text}}11
+      <view class="read-icon" wx:if="{{item.index == '5' && is_notice === 1}}"></view>
+    </view>
+  </block>
+</view>

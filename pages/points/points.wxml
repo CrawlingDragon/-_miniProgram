@@ -1,0 +1,29 @@
+<!--积分兑换-->
+<view class="point-head">
+  <view class="left">总积分：{{total_score}}</view>
+  <view class="right">
+
+    <picker mode="date" value="{{date}}" start="1999" fields="year" end="{{end}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}年
+        <image src="/static/down.png" class="icon">
+        </image>
+      </view>
+    </picker>
+  </view>
+</view>
+<scroll-view class="scroll-box">
+  <block wx:for="{{list}}" wx:key="distributor_id">
+    <view class="li-wrap" bindtap="deductPointList" data-deduct_score="{{item.deduct_scroe}}" data-distributor_id="{{item.distributor_id}}">
+      <text class="name">{{item.distributor_name}}</text>
+      <view class="number-bar">
+        <view class="item">扫码得{{item.total_score}}</view>
+        <view class="item {{item.deduct_scroe == 0?'':'has_deduct_scroe'}}">扣减{{item.deduct_scroe}} ></view>
+        <view class="item">可兑换{{item.re_score}}</view>
+      </view>
+      <view class="btn convert" wx:if="{{item.status === 1}}" bindtap="checkPoint" data-distributorid="{{item.distributor_id}}">确认兑换</view>
+      <view class="btn  converted" wx:else>已兑换</view>
+    </view>
+  </block>
+</scroll-view>
+<view wx:if="{{noData}}" class="no-data">暂无数据</view>

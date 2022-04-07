@@ -1,1 +1,32 @@
 /* pages/message_detail/message_detail.wxss */
+.msg-detail-wrap {
+  padding: 30rpx 30rpx;
+  background: #ffffff;
+}
+.msg-detail-wrap .msg-head {
+  display: flex;
+  flex-direction: column;
+}
+.msg-head .title {
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 40rpx;
+}
+.msg-head .time {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999999;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+}
+.msg-head img {
+  max-width: 100%;
+}
+.msg-detail-text {
+  font-size: 24rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #333333;
+  line-height: 50rpx;
+}

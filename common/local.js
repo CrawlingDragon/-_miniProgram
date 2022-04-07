@@ -4,6 +4,24 @@ export function getLocation() {
   qqmapsdk = new QQMapWX({
     key: "QBKBZ-G5PRX-NWG4E-7DMOT-KBNYF-EGFP3",
   });
+
+  // wx.getSetting({
+  //   success(res) {
+  //     if (!res.authSetting["scope.userLocation"]) {
+  //       console.log(res.authSetting["scope.userLocation"]);
+  //       wx.authorize({
+  //         scope: "scope.userLocation",
+  //         success(res) {
+  //           console.log(res);
+  //         },
+  //         fail(e) {
+  //           console.log("e", e);
+  //         },
+  //       });
+  //     }
+  //   },
+  // });
+
   // 获取缓存的定位地址
   let geoAddress = wx.getStorageSync("geoAddress");
   // console.log("geoAddress", geoAddress);
@@ -22,9 +40,11 @@ export function getLocation() {
         //使用腾讯位置服务，把经纬度转换成详细地址
         location: { latitude, longitude },
         success: function (res) {
+          // console.log(res.result);
           const { province, city, district } = res.result.address_component;
+          let town = res.result.address_reference.town.title;
           //拼接省市区
-          let geoAddress = province + city + district;
+          let geoAddress = province + "," + city + "," + district + "," + town;
           //缓存地址
           wx.setStorageSync("geoAddress", geoAddress);
         },
@@ -33,14 +53,27 @@ export function getLocation() {
         },
       });
     },
-    fail() {
+    fail(e) {
+      // errMsg :"getLocation:fail auth deny"
       wx.showToast({
-        title: "获取地址失败",
+        title: "定位失败",
         icon: "error",
         duration: 2000,
       });
     },
   });
 }
-// 把地址保存在缓存
-// 在小程序退出情况地址（不是后台钩子）
+
+export function authorizeAndGetLocation(callback) {
+  // 如果拒绝授权定位，则调用授权设置页，通过后再跳转
+  wx.openSetting({
+    success(res) {
+      // console.log("res", res);
+      // console.log("userLocation", res.authSetting["scope.userLocation"]);
+      if (res.authSetting["scope.userLocation"]) {
+        getLocation();
+        callback && callback();
+      }
+    },
+  });
+}

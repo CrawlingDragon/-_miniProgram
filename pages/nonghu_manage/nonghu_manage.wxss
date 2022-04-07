@@ -1,1 +1,119 @@
-.nonghu-manage-page.data-v-e6da11ee{width:100%;height:100%;overflow:auto}.nonghu-manage-page .search-box.data-v-e6da11ee{margin:30rpx 25rpx}.nonghu-manage-page .nonghu-list.data-v-e6da11ee{font-family:Microsoft YaHei;font-weight:Regular;color:#999;font-size:28rpx;height:calc(100% - 120rpx - 140rpx)}.nonghu-manage-page .nonghu-list .single-nonghu.data-v-e6da11ee{height:200rpx;width:100%;background-color:#fff;border-bottom:1rpx solid rgba(0,0,0,.1);display:-webkit-box;display:-webkit-flex;display:flex}.nonghu-manage-page .nonghu-list .single-nonghu .nonghu-pic.data-v-e6da11ee{padding:37rpx 8rpx 33rpx 26rpx;-webkit-box-flex:176;-webkit-flex:176;flex:176}.nonghu-manage-page .nonghu-list .single-nonghu .nonghu-info.data-v-e6da11ee{-webkit-box-flex:480;-webkit-flex:480;flex:480;padding-top:30rpx}.nonghu-manage-page .nonghu-list .single-nonghu .nonghu-info .item1.data-v-e6da11ee{font-size:38rpx;color:#333;margin-bottom:22rpx}.nonghu-manage-page .nonghu-list .single-nonghu .del-btn-box.data-v-e6da11ee{-webkit-box-flex:94;-webkit-flex:94;flex:94;line-height:200rpx;color:#ea5413;font-size:28rpx}.nonghu-manage-page .nonghu-list .single-nonghu .del-btn-box .del-btn.data-v-e6da11ee{width:100%;height:100%}.nonghu-manage-page .no-data.data-v-e6da11ee{font-family:Microsoft YaHei;font-weight:Regular;color:#999;font-size:30rpx;margin-top:180rpx;text-align:center}.nonghu-manage-page .add-btn-box.data-v-e6da11ee{position:fixed;bottom:0rpx;width:100%;background-color:#fff;height:120rpx}.nonghu-manage-page .add-btn-box .add_btn.data-v-e6da11ee{box-shadow:0 3px 10px 0 rgba(0,0,0,.31);height:80rpx;margin:20rpx 66rpx;width:618rpx;line-height:80rpx;letter-spacing:10rpx;font-family:Microsoft YaHei;font-weight:Regular;font-size:34rpx}
+.nonghu-manage-page.data-v-e6da11ee {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.nonghu-manage-page .search-box.data-v-e6da11ee {
+  margin: 30rpx 25rpx;
+}
+.nonghu-manage-page .nonghu-list.data-v-e6da11ee {
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #999;
+  font-size: 28rpx;
+  height: calc(100% - 120rpx - 140rpx);
+}
+.nonghu-manage-page .nonghu-list .single-nonghu.data-v-e6da11ee {
+  min-height: 200rpx;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 37rpx;
+  position: relative;
+}
+.nonghu-manage-page .nonghu-list .single-nonghu .nonghu-pic.data-v-e6da11ee {
+  padding: 37rpx 8rpx 33rpx 26rpx;
+  -webkit-box-flex: 176;
+  -webkit-flex: 176;
+  flex: 176;
+}
+.nonghu-manage-page .nonghu-list .single-nonghu .nonghu-info.data-v-e6da11ee {
+  -webkit-box-flex: 480;
+  -webkit-flex: 480;
+  flex: 480;
+  padding-top: 30rpx;
+}
+.nonghu-manage-page
+  .nonghu-list
+  .single-nonghu
+  .nonghu-info
+  .item1.data-v-e6da11ee {
+  font-size: 38rpx;
+  color: #333;
+  margin-bottom: 22rpx;
+  display: flex;
+  align-items: center;
+}
+.item1 .small-title {
+  width: 56rpx;
+  height: 34rpx;
+  background: #ccb160;
+  border-radius: 7rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  line-height: 34rpx;
+  margin-left: 15rpx;
+}
+.nonghu-manage-page .nonghu-list .single-nonghu .del-btn-box.data-v-e6da11ee {
+  -webkit-box-flex: 94;
+  -webkit-flex: 94;
+  flex: 94;
+  line-height: 200rpx;
+  color: #ea5413;
+  font-size: 28rpx;
+}
+.nonghu-manage-page
+  .nonghu-list
+  .single-nonghu
+  .del-btn-box
+  .del-btn.data-v-e6da11ee {
+  width: 100%;
+  height: 100%;
+}
+.nonghu-manage-page .no-data.data-v-e6da11ee {
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 180rpx;
+  text-align: center;
+}
+.nonghu-manage-page .add-btn-box.data-v-e6da11ee {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  background-color: #fff;
+  height: 120rpx;
+}
+.nonghu-manage-page .add-btn-box .add_btn.data-v-e6da11ee {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.31);
+  height: 80rpx;
+  margin: 20rpx 66rpx;
+  width: 618rpx;
+  line-height: 80rpx;
+  letter-spacing: 10rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 34rpx;
+}
+.set-btn {
+  position: absolute;
+  right: 25rpx;
+  top: 50%;
+  width: 130rpx;
+  height: 60rpx;
+  margin-top: -30rpx;
+  background: #1aa93a;
+  border-radius: 7rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+}
+.set-btn.cancel-set-btn {
+  background: #ea5413;
+}

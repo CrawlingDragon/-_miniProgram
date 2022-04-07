@@ -1,3 +1,26 @@
-@import './common/main.wxss';
+@import "./common/main.wxss";
 
-[data-custom-hidden="true"],[bind-data-custom-hidden="true"]{display: none !important;}
+[data-custom-hidden="true"],
+[bind-data-custom-hidden="true"] {
+  display: none !important;
+}
+.no-data {
+  font-size: 30rpx;
+  text-align: center;
+  padding: 100rpx 0;
+  color: #333333;
+}
+.loading-text {
+  padding: 15rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+}
+.read-icon {
+  width: 20rpx;
+  height: 20rpx;
+  background: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 15rpx;
+  right: 18rpx;
+}

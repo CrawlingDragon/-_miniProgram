@@ -1,0 +1,10 @@
+<view class="item-wrap">
+  <view class="item">农技示范户管理</view>
+  <view class="item">技术分享
+    <view class="read-icon"></view>
+  </view>
+  <view class="item">农技示范记录
+    <view class="read-icon"></view>
+  </view>
+  <view class="item">红包日志</view>
+</view>

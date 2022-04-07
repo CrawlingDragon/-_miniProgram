@@ -94,11 +94,15 @@
   background-color: #1aad19;
 }
 
-page {
-  background-color: #ffffff;
+.index-page {
   height: 100%;
 }
 
 .city__list {
   height: 100%;
+  background: #fff;
+  z-index: 999999999;
+  position: absolute;
+  width: 100%;
+  top: 0;
 }

@@ -1,1 +1,24 @@
-<view class="share-pic data-v-f1a006ce"><block wx:if="{{record_list.length!=0}}"><scroll-view class="share-list data-v-f1a006ce" scroll-y="{{true}}" scroll-x="{{false}}" refresher-enabled="{{true}}" refresher-triggered="{{refreshstatus}}" refresher-background="#EFEFF4" data-event-opts="{{[['refresherpulling',[['pullDownRefresh',['$event']]]],['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindrefresherpulling="__e" bindscrolltolower="__e"><block wx:for="{{record_list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="single-share data-v-f1a006ce"><view class="item1 pic data-v-f1a006ce"><u-image vue-id="{{'0f5ada80-1-'+index}}" src="{{item.image}}" lazy-load="{{true}}" width="{{180}}" height="{{140}}" border-radius="{{10}}" data-event-opts="{{[['^click',[['watchBigPic',['$0'],[[['record_list','',index,'image']]]]]]]}}" bind:click="__e" class="data-v-f1a006ce" bind:__l="__l"></u-image></view><view data-event-opts="{{[['tap',[['watchNonghu',['$0'],[[['record_list','',index]]]]]]]}}" class="item1 info data-v-f1a006ce" bindtap="__e"><view class="name data-v-f1a006ce">{{''+item.realname+''}}</view><view class="time data-v-f1a006ce">{{''+item.create_time+''}}</view></view></view></block><u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-f1a006ce" vue-id="0f5ada80-2" margin-top="{{20}}" margin-bottom="{{20}}" status="{{status}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore></scroll-view></block><block wx:if="{{record_list.length==0}}"><view class="no-data data-v-f1a006ce">暂无数据</view></block></view>
+<view class="share-pic data-v-f1a006ce">
+  <block wx:if="{{record_list.length!=0}}">
+    <scroll-view class="share-list data-v-f1a006ce" scroll-y="{{true}}" scroll-x="{{false}}" refresher-enabled="{{true}}" refresher-triggered="{{refreshstatus}}" refresher-background="#EFEFF4" data-event-opts="{{[['refresherpulling',[['pullDownRefresh',['$event']]]],['scrolltolower',[['scrollToBottom',['$event']]]]]}}" bindrefresherpulling="__e" bindscrolltolower="__e">
+      <block wx:for="{{record_list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="single-share data-v-f1a006ce">
+          <view class="item1 pic data-v-f1a006ce">
+            <u-image vue-id="{{'0f5ada80-1-'+index}}" src="{{item.image}}" lazy-load="{{true}}" width="{{180}}" height="{{140}}" border-radius="{{10}}" data-event-opts="{{[['^click',[['watchBigPic',['$0'],[[['record_list','',index,'image']]]]]]]}}" bind:click="__e" class="data-v-f1a006ce" bind:__l="__l"></u-image>
+          </view>
+          <view data-event-opts="{{[['tap',[['watchNonghu',['$0'],[[['record_list','',index]]]]]]]}}" class="item1 info data-v-f1a006ce" bindtap="__e">
+            <view class="name data-v-f1a006ce">{{''+item.realname+''}}</view>
+            <view class="time data-v-f1a006ce">{{''+item.create_time+''}}</view>
+          </view>
+          <view class="check-btn {{item.is_check === 0?'':'uncheck'}}" data-event-opts="{{[['tap',[['set_check',['$0'],[[['record_list','',index]]]]]]]}}" bindtap="__e">
+            {{item.is_check === 0?'验收':'取消验收'}}
+          </view>
+        </view>
+      </block>
+      <u-loadmore data-custom-hidden="{{!(isloadshow)}}" class="load data-v-f1a006ce" vue-id="0f5ada80-2" margin-top="{{20}}" margin-bottom="{{20}}" status="{{status}}" data-event-opts="{{[['^loadmore',[['loadmore']]]]}}" bind:loadmore="__e" bind:__l="__l"></u-loadmore>
+    </scroll-view>
+  </block>
+  <block wx:if="{{record_list.length==0}}">
+    <view class="no-data data-v-f1a006ce">暂无数据</view>
+  </block>
+</view>

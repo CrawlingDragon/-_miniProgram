@@ -1,0 +1,66 @@
+<!--认证中，认证失败-->
+<view class="box">
+  <view class="head-title">
+    <block wx:if="{{is_shop_auth === 2}}">已认证</block>
+    <block wx:if="{{is_shop_auth === 0}}">未认证</block>
+    <block wx:if="{{is_shop_auth === 1}}">认证中</block>
+    <view wx:if="{{is_shop_auth === 3}}" class="fail">
+      认证失败:
+    </view>
+    <view class="small-title">{{remark}}</view>
+  </view>
+
+  <mp-cells class="cells">
+    <mp-cell>
+      <view>用户名</view>
+      <view slot="footer" class="right" class="input-value">{{userName}}</view>
+    </mp-cell>
+    <mp-cell link="{{is_shop_auth === 1?false:true}}">
+      <view>名字</view>
+      <view slot="footer" class="right">
+        <input type="text" model:value="{{name}}" class="input-value" disabled="{{is_shop_auth === 1?'true':''}}" />
+      </view>
+    </mp-cell>
+    <mp-cell link="{{is_shop_auth === 1?false:true}}">
+      <view>店铺名</view>
+      <view slot="footer" class="right">
+        <input type="text" model:value="{{shopName}}" class="input-value" disabled="{{is_shop_auth === 1?'true':''}}" placeholder="输入店铺名" />
+      </view>
+    </mp-cell>
+
+    <mp-cell link="{{is_shop_auth === 1?false:true}}">
+      <view>所在地</view>
+
+      <view slot="footer" class="right">
+        <picker mode="region" bindchange="bindRegionChange" value="{{address}}">
+          <input type="text" value="{{address}}" class="input-value" disabled="{{is_shop_auth === 1?'true':''}}" />
+        </picker>
+      </view>
+
+    </mp-cell>
+    <mp-cell link="{{is_shop_auth === 1?false:true}}">
+      <view>详细地址</view>
+      <view slot="footer" class="right">
+        <textarea name="" id="" model:value="{{detailAddress}}" class="input-value txt" auto-height="{{true}}" rows="30" cols="30" disabled="{{is_shop_auth === 1?'true':''}}"></textarea>
+      </view>
+    </mp-cell>
+  </mp-cells>
+
+  <view class="upload-box">
+    <view class="title">营业执照</view>
+    <view class="upload-btn" bindtap="chooseImageMedia">
+      <mp-loading type="circle" ext-class="img-loading" tips="上传中" show="{{show}}"></mp-loading>
+    </view>
+    <!-- <mp-uploader ext-class="up-btn upload-btn" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}">
+    </mp-uploader> -->
+    <!-- <view>
+      <text wx:if=" !license">图片显示错误</text>
+  </view> -->
+
+
+    <image class="upload-image" src="{{license}}" mode="aspectFit"></image>
+  </view>
+  <view class="btn-box">
+    <view class="btn {{is_shop_auth===1?'disabled':''}}" catchtap="approve">提交</view>
+  </view>
+</view>

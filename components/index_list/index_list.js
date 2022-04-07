@@ -1,5 +1,5 @@
 // components/index-list/index_list.js
-import list from "./data";
+import list2 from "./data";
 Component({
   options: {
     addGlobalClass: true,
@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    list: list,
+    list: list2,
     show2: true,
   },
 
@@ -23,7 +23,7 @@ Component({
    */
   methods: {
     onChoose(e) {
-      console.log(e);
+      this.triggerEvent("myevent", { value: e.detail.item.name }, {});
     },
   },
 });

@@ -1,0 +1,27 @@
+/* pages/point_deduct/point_deduct.wxss */
+.item {
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+.item:first-child {
+  border-top: 1px solid #e5e5e5;
+}
+.item .name {
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+.item .line {
+  display: flex;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 5rpx;
+}
+.item .line .label {
+  width: auto;
+}
+.item .line .text {
+  flex: 1;
+}

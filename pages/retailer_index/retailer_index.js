@@ -1,218 +1,144 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
-  ["pages/retailer_index/retailer_index"],
-  {
-    1294: function (e, t, n) {
-      "use strict";
-      (function (e) {
-        Object.defineProperty(t, "__esModule", { value: !0 }),
-          (t.default = void 0);
-        var r = n("2f62");
-        function o(e, t) {
-          var n = Object.keys(e);
-          if (Object.getOwnPropertySymbols) {
-            var r = Object.getOwnPropertySymbols(e);
-            t &&
-              (r = r.filter(function (t) {
-                return Object.getOwnPropertyDescriptor(e, t).enumerable;
-              })),
-              n.push.apply(n, r);
-          }
-          return n;
-        }
-        function u(e) {
-          for (var t = 1; t < arguments.length; t++) {
-            var n = null != arguments[t] ? arguments[t] : {};
-            t % 2
-              ? o(Object(n), !0).forEach(function (t) {
-                  i(e, t, n[t]);
-                })
-              : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-              : o(Object(n)).forEach(function (t) {
-                  Object.defineProperty(
-                    e,
-                    t,
-                    Object.getOwnPropertyDescriptor(n, t)
-                  );
-                });
-          }
-          return e;
-        }
-        function i(e, t, n) {
-          return (
-            t in e
-              ? Object.defineProperty(e, t, {
-                  value: n,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (e[t] = n),
-            e
-          );
-        }
-        const app = getApp()
-        var a = {
-          data: function () {
-            return {
-              perinfo: "",
-              points: [
-                { index: "1", text: "扫码入库" },
-                { index: "2", text: "扫码退货" },
-                { index: "3", text: "手工输入入库/退货" },
-                { index: "4", text: "进货统计" },
-                { index: "5", text: "需要的支持" },
-              ],
-            };
-          },
-          onShow: function () {
-            this.getPerInfo(), e.hideHomeButton();
-          },
-          computed: u({}, (0, r.mapState)(["token", "userinfo", "wxinfo"])),
-          methods: {
-            modefiy: function () {
-              e.navigateTo({ url: "../personal/personal" });
-            },
-            getPerInfo: function () {
-              var t = this,
-                n = this;
-              this.myRequest({
-                url:app.globalData.baseUrl +  "member/user/get_user_info",
-                method: "POST",
-                data: { token: n.token },
-              }).then(function (n) {
-                1 == n.data.code
-                  ? (t.perinfo = n.data.data)
-                  : 510 == n.data.code &&
-                    "无效的token参数！" == n.data.msg &&
-                    e.navigateTo({ url: "../login/login?operation=relogin" });
-              });
-            },
-            selPoints: function (t) {
-              switch (t.text) {
-                case "扫码入库":
-                  e.navigateTo({ url: "../enter_products/enter_products" });
-                  break;
-                case "扫码退货":
-                  e.navigateTo({ url: "../out_products/out_products" });
-                  break;
-                case "手工输入入库/退货":
-                  e.navigateTo({
-                    url: "../enter_out_products/enter_out_products",
-                  });
-                  break;
-                case "进货统计":
-                  e.navigateTo({
-                    url:
-                      "../enter_products_statistics/enter_products_statistics?user_id=" +
-                      this.perinfo.userid,
-                  });
-                  break;
-                case "需要的支持":
-                  e.navigateTo({ url: "../need_supports/need_supports" });
-                  break;
-                default:
-                  console.log("点错了");
-                  break;
-              }
-            },
-          },
-        };
-        t.default = a;
-      }.call(this, n("543d")["default"]));
-    },
-    3862: function (e, t, n) {
-      "use strict";
-      (function (e) {
-        n("a10a");
-        r(n("66fd"));
-        var t = r(n("b792"));
-        function r(e) {
-          return e && e.__esModule ? e : { default: e };
-        }
-        e(t.default);
-      }.call(this, n("543d")["createPage"]));
-    },
-    "39c1": function (e, t, n) {},
-    "85ea": function (e, t, n) {
-      "use strict";
-      n.r(t);
-      var r = n("1294"),
-        o = n.n(r);
-      for (var u in r)
-        "default" !== u &&
-          (function (e) {
-            n.d(t, e, function () {
-              return r[e];
-            });
-          })(u);
-      t["default"] = o.a;
-    },
-    b792: function (e, t, n) {
-      "use strict";
-      n.r(t);
-      var r = n("cf74"),
-        o = n("85ea");
-      for (var u in o)
-        "default" !== u &&
-          (function (e) {
-            n.d(t, e, function () {
-              return o[e];
-            });
-          })(u);
-      n("d238");
-      var i,
-        a = n("f0c5"),
-        c = Object(a["a"])(
-          o["default"],
-          r["b"],
-          r["c"],
-          !1,
-          null,
-          "ab676c6a",
-          null,
-          !1,
-          r["a"],
-          i
-        );
-      t["default"] = c.exports;
-    },
-    cf74: function (e, t, n) {
-      "use strict";
-      n.d(t, "b", function () {
-        return o;
-      }),
-        n.d(t, "c", function () {
-          return u;
-        }),
-        n.d(t, "a", function () {
-          return r;
-        });
-      var r = {
-          uImage: function () {
-            return n
-              .e("uview-ui/components/u-image/u-image")
-              .then(n.bind(null, "9601"));
-          },
-          uIcon: function () {
-            return n
-              .e("uview-ui/components/u-icon/u-icon")
-              .then(n.bind(null, "f93f"));
-          },
-        },
-        o = function () {
-          var e = this,
-            t = e.$createElement;
-          e._self._c;
-        },
-        u = [];
-    },
-    d238: function (e, t, n) {
-      "use strict";
-      var r = n("39c1"),
-        o = n.n(r);
-      o.a;
-    },
+const app = getApp();
+import { getLocation, authorizeAndGetLocation } from "../../common/local.js";
+
+Page({
+  data: {
+    perinfo: "",
+    points: [
+      { index: "1", text: "扫码入库" },
+      { index: "2", text: "扫码退货" },
+      { index: "3", text: "手工输入入库/退货" },
+      { index: "4", text: "进货统计" },
+      { index: "5", text: "需要的支持" },
+      { index: "6", text: "信息提醒" },
+    ],
   },
-  [["3862", "common/runtime", "common/vendor"]],
-]);
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getPerInfo();
+    getLocation();
+  },
+  modefiy: function () {
+    wx.navigateTo({ url: "../personal/personal" });
+  },
+  getPerInfo: function () {
+    let token = wx.getStorageSync("token");
+    wx.request({
+      url: app.globalData.baseUrl + "member/user/get_user_info",
+      method: "POST",
+      data: { token: token },
+      success: (res) => {
+        if (res.data.code === 1) {
+          this.setData({
+            perinfo: res.data.data,
+          });
+        } else if (res.data.code === 510) {
+          wx.navigateTo({ url: "../login/login?operation=relogin" });
+        }
+      },
+    });
+  },
+  selPoints: function (e) {
+    // 提取用户的认证状态
+    let approve = this.data.perinfo.is_shop_auth;
+    let text = e.currentTarget.dataset.text;
+    let address = wx.getStorageSync("geoAddress");
+    if (
+      (text == "扫码入库" ||
+        text == "扫码退货" ||
+        text == "手工输入入库/退货") &&
+      approve !== 2
+    ) {
+      //当点击进入扫码入库，扫码退货，手工输入入库/退货三个页面，且认证不是通过（也就是approve不为2时,需要弹窗）
+      this.approve(approve);
+      return;
+    }
+    if (
+      (text == "扫码入库" ||
+        text == "扫码退货" ||
+        text == "手工输入入库/退货") &&
+      !address
+    ) {
+      authorizeAndGetLocation(() => {
+        switch (text) {
+          case "扫码入库":
+            wx.navigateTo({ url: "../enter_products/enter_products" });
+            break;
+          case "扫码退货":
+            wx.navigateTo({ url: "../out_products/out_products" });
+            break;
+          case "手工输入入库/退货":
+            wx.navigateTo({
+              url: "../enter_out_products/enter_out_products",
+            });
+            break;
+        }
+      });
+      return;
+    }
+
+    switch (text) {
+      case "扫码入库":
+        wx.navigateTo({ url: "../enter_products/enter_products" });
+        break;
+      case "扫码退货":
+        wx.navigateTo({ url: "../out_products/out_products" });
+        break;
+      case "手工输入入库/退货":
+        wx.navigateTo({
+          url: "../enter_out_products/enter_out_products",
+        });
+        break;
+      case "进货统计":
+        wx.navigateTo({
+          url:
+            "../enter_products_statistics/enter_products_statistics?user_id=" +
+            this.data.perinfo.userid,
+        });
+        break;
+      case "需要的支持":
+        wx.navigateTo({ url: "../need_supports/need_supports" });
+        break;
+      case "信息提醒":
+        wx.navigateTo({ url: "../message_list/message_list" });
+        break;
+      default:
+        console.log("点错了");
+        break;
+    }
+  },
+  approve(approveStatus) {
+    //认证弹窗效果
+    //身份认证状态：（0未认证1认证中2认证通过3认证失败）
+    if (approveStatus === 2) {
+      //说明通过认证，什么都不显示
+      return;
+    }
+    let content =
+      approveStatus === 0
+        ? "您的身份尚未认证，请先上传营业执照进行身份认证"
+        : approveStatus === 1
+        ? "您的身份正在认证中，请稍后"
+        : "您的身份认证失败，请重新认证";
+    wx.showModal({
+      content: content,
+      showCancel: approveStatus === 1 ? false : true,
+      confirmText: approveStatus === 1 ? "确定" : "去认证",
+      confirmColor: "#1AA93A",
+      success(res) {
+        if (res.confirm) {
+          if (approveStatus === 1) {
+            //认证中，不做处理
+            return;
+          }
+          console.log("用户点击确定,去到认证页面");
+        } else if (res.cancel) {
+          console.log("用户点击取消，就直接取消了");
+        }
+      },
+    });
+  },
+});

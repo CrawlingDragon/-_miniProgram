@@ -116,7 +116,7 @@
             e
           );
         }
-        const app = getApp()
+        const app = getApp();
         var h = {
           data: function () {
             return {
@@ -133,8 +133,8 @@
             };
           },
           onLoad: function (e) {
-            (this.user_id = e.user_id),
-              (this.from = e.from),
+            (this.user_id = e?.user_id),
+              (this.from = e?.from),
               console.log(e),
               this.getShareRecord(this.page, this.pagesize);
           },
@@ -199,6 +199,50 @@
                   default:
                     break;
                 }
+              });
+            },
+            set_check(e) {
+              //点击验收按钮
+              //is_check = 1,表示已经验收，0表示未验收
+              //请求的sid
+              let { is_check, sid } = e;
+              let modalTitle = ""; //弹窗title
+              let opt = ""; //请求的方式，pass验收，cancel取消验收
+              if (is_check === 1) {
+                modalTitle = "确定取消验收吗？";
+                opt = "cancel";
+              } else {
+                modalTitle = "确定验收吗？";
+                opt = "pass";
+              }
+              wx.showModal({
+                content: modalTitle,
+                success: (res) => {
+                  if (res.confirm) {
+                    this.ajaxSetCheck(sid, opt);
+                  }
+                },
+              });
+              console.log(is_check);
+            },
+            ajaxSetCheck(sid, opt) {
+              //验收的请求
+              let token = wx.getStorageSync("token");
+              wx.request({
+                url: app.globalData.baseUrl + "/member/crop/adopt_share",
+                method: "POST",
+                data: { token, sid, opt },
+                success: (res) => {
+                  let data = res.data;
+                  if (data.code === 1) {
+                    this.page = 1;
+                    this.getShareRecord(this.page, this.pagesize);
+                  }
+                  wx.showToast({
+                    icon: "none",
+                    title: data.msg,
+                  });
+                },
               });
             },
           },

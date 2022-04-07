@@ -1,7 +1,6 @@
 <!--components/index-list/index_list.wxml-->
 <mp-indexList class="city__list" list="{{list}}" bindchoose="onChoose" wx:if="{{show2}}">
-  <view class="page">
-
+  <view class="index-page">
     <view class="page__bd">
     </view>
   </view>

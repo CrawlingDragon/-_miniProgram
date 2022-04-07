@@ -1,197 +1,103 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
-  ["pages/medication_record_detail/medication_record_detail"],
-  {
-    "2d57": function (e, t, n) {
-      "use strict";
-      n.r(t);
-      var r = n("f974"),
-        o = n.n(r);
-      for (var c in r)
-        "default" !== c &&
-          (function (e) {
-            n.d(t, e, function () {
-              return r[e];
-            });
-          })(c);
-      t["default"] = o.a;
-    },
-    "44b1": function (e, t, n) {},
-    "4f95": function (e, t, n) {
-      "use strict";
-      var r = n("44b1"),
-        o = n.n(r);
-      o.a;
-    },
-    "879b": function (e, t, n) {
-      "use strict";
-      n.d(t, "b", function () {
-        return o;
-      }),
-        n.d(t, "c", function () {
-          return c;
-        }),
-        n.d(t, "a", function () {
-          return r;
-        });
-      var r = {
-          uImage: function () {
-            return n
-              .e("uview-ui/components/u-image/u-image")
-              .then(n.bind(null, "9601"));
-          },
-          uLoading: function () {
-            return n
-              .e("uview-ui/components/u-loading/u-loading")
-              .then(n.bind(null, "d662"));
-          },
-        },
-        o = function () {
-          var e = this,
-            t = e.$createElement;
-          e._self._c;
-        },
-        c = [];
-    },
-    "9f3f": function (e, t, n) {
-      "use strict";
-      (function (e) {
-        n("a10a");
-        r(n("66fd"));
-        var t = r(n("a109"));
-        function r(e) {
-          return e && e.__esModule ? e : { default: e };
-        }
-        e(t.default);
-      }.call(this, n("543d")["createPage"]));
-    },
-    a109: function (e, t, n) {
-      "use strict";
-      n.r(t);
-      var r = n("879b"),
-        o = n("2d57");
-      for (var c in o)
-        "default" !== c &&
-          (function (e) {
-            n.d(t, e, function () {
-              return o[e];
-            });
-          })(c);
-      n("4f95");
-      var a,
-        i = n("f0c5"),
-        u = Object(i["a"])(
-          o["default"],
-          r["b"],
-          r["c"],
-          !1,
-          null,
-          "c6589be2",
-          null,
-          !1,
-          r["a"],
-          a
-        );
-      t["default"] = u.exports;
-    },
-    f974: function (e, t, n) {
-      "use strict";
-      (function (e) {
-        Object.defineProperty(t, "__esModule", { value: !0 }),
-          (t.default = void 0);
-        var r = n("2f62");
-        function o(e, t) {
-          var n = Object.keys(e);
-          if (Object.getOwnPropertySymbols) {
-            var r = Object.getOwnPropertySymbols(e);
-            t &&
-              (r = r.filter(function (t) {
-                return Object.getOwnPropertyDescriptor(e, t).enumerable;
-              })),
-              n.push.apply(n, r);
-          }
-          return n;
-        }
-        function c(e) {
-          for (var t = 1; t < arguments.length; t++) {
-            var n = null != arguments[t] ? arguments[t] : {};
-            t % 2
-              ? o(Object(n), !0).forEach(function (t) {
-                  a(e, t, n[t]);
-                })
-              : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-              : o(Object(n)).forEach(function (t) {
-                  Object.defineProperty(
-                    e,
-                    t,
-                    Object.getOwnPropertyDescriptor(n, t)
-                  );
-                });
-          }
-          return e;
-        }
-        function a(e, t, n) {
-          return (
-            t in e
-              ? Object.defineProperty(e, t, {
-                  value: n,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (e[t] = n),
-            e
-          );
-        }
-        const app = getApp()
-        var i = {
-          data: function () {
-            return {
-              from: "",
-              recordlist: [],
-              crop_code: "",
-              mobile: "",
-              realname: "",
-            };
-          },
-          onLoad: function (t) {
-            (this.crop_code = t.crop_code),
-              t.crop_code && this.getRecordDetail(t.crop_code),
-              (this.from = t.from),
-              "yewuyuan" == t.from &&
-                e.setNavigationBarTitle({ title: "农技示范记录详情" });
-          },
-          computed: c({}, (0, r.mapState)(["token"])),
-          methods: {
-            watchBigPic: function (t) {
-              var n = [];
-              n.push(t), e.previewImage({ urls: n });
-            },
-            addRecord: function () {
-              e.navigateTo({
-                url: "../continue_record/continue_record?crop_code=".concat(
-                  this.crop_code
-                ),
-              });
-            },
-            getRecordDetail: function (e) {
-              var t = this;
-              this.myRequest({
-                url:app.globalData.baseUrl +  "member/crop/get_crop_detail",
-                method: "POST",
-                data: { token: t.token, crop_code: e },
-              }).then(function (e) {
-                1 == e.data.code &&
-                  ((t.recordlist = e.data.data.list),
-                  (t.mobile = e.data.data.list[0].mobile),
-                  (t.realname = e.data.data.list[0].realname));
-              });
-            },
-          },
-        };
-        t.default = i;
-      }.call(this, n("543d")["default"]));
-    },
+const app = getApp();
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    from: "",
+    recordlist: [],
+    crop_code: "",
+    mobile: "",
+    realname: "",
   },
-  [["9f3f", "common/runtime", "common/vendor"]],
-]);
+  onLoad: function (t) {
+    console.log(t);
+    // 缺少点击大图效果
+    if (t?.crop_code) {
+      this.setData({
+        crop_code: t.crop_code,
+      });
+      this.getRecordDetail(t.crop_code);
+    }
+    if (t?.from === "yewuyuan") {
+      this.setData({
+        from: t.from,
+      });
+    }
+    wx.setNavigationBarTitle({ title: "农技示范记录详情" });
+  },
+
+  addRecord: function () {
+    wx.navigateTo({
+      url: "../continue_record/continue_record?crop_code=".concat(
+        this.crop_code
+      ),
+    });
+  },
+  getRecordDetail: function (e) {
+    // 获取农技示范数据接口
+    let token = wx.getStorageSync("token");
+    wx.request({
+      url: app.globalData.baseUrl + "/member/crop/get_crop_detail",
+      method: "POST",
+      data: { token: token, crop_code: e },
+      success: (e) => {
+        if (e.data.code === 1) {
+          this.setData({
+            recordlist: e.data.data.list,
+            mobile: e.data.data.list[0].mobile,
+            realname: e.data.data.list[0].realname,
+          });
+        }
+      },
+    });
+  },
+  checkCrop(e) {
+    //验收和取消验收的操作按钮
+    let checkStatus = e.currentTarget.dataset.checkStatus;
+    let crop_id = e.currentTarget.dataset.cropId;
+    let modeltitle = ""; //弹窗的content文案
+    let opt = ""; //请求的方式，pass表示验收，cancel表示取消验收
+    if (checkStatus === "checked") {
+      // checkStatus == checked,表示已经验收
+      modeltitle = "确定取消验收吗？";
+      opt = "cancel";
+    } else {
+      //表示未验收
+      modeltitle = "确定验收吗？";
+      opt = "pass";
+    }
+    wx.showModal({
+      content: modeltitle,
+      success: (res) => {
+        if (res.confirm) {
+          this.ajaxCheckCrop(crop_id, opt);
+        } else if (res.cancel) {
+          //点击取消，不操作
+        }
+      },
+    });
+  },
+  ajaxCheckCrop(crop_id, opt) {
+    //验收和取消验收的接口请求
+    let token = wx.getStorageSync("token");
+    wx.request({
+      url: app.globalData.baseUrl + "/member/crop/adopt_crop",
+      method: "POST",
+      data: { token, crop_id, opt },
+      success: (res) => {
+        console.log(res);
+        let data = res.data;
+        if (data.code === 1) {
+          //操作成功后，重新加载数据
+          this.getRecordDetail(this.data.crop_code);
+        }
+        //不管结果如果，都弹出提示
+        wx.showToast({
+          icon: "none",
+          title: data.msg,
+        });
+      },
+    });
+  },
+});

@@ -1,0 +1,31 @@
+/* components/block_list/block_list.wxss */
+.function-points .single-points.data-v-3235c4e5 {
+  background-color: #e3ebfa;
+  width: 340rpx;
+  height: 220rpx;
+  line-height: 180rpx;
+  display: inline-block;
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 34rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.nonghu-index
+  .function-points
+  .single-points.data-v-3235c4e5:nth-child(2n + 1) {
+  margin-right: 20rpx;
+}
+.read-icon {
+  width: 20rpx;
+  height: 20rpx;
+  background: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 15rpx;
+  right: 18rpx;
+}

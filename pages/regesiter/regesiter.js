@@ -199,6 +199,7 @@
                     address: [n.address0, n.address1],
                     shop_name: "1" == t ? "" : n.shopname,
                     avatar: n.avatar,
+                    detailed_address: n.detailAddress0,
                   },
                 }).then(function (r) {
                   n.setUsertype(r.data.data.user_type),

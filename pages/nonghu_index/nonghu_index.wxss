@@ -11,7 +11,7 @@
 .nonghu-index .per-info .p-left.data-v-3235c4e5 {
   width: 130rpx;
   height: 130rpx;
-  margin: 40rpx 30rpx 40rpx 25rpx;
+  margin: 40rpx 30rpx 0 25rpx;
   display: inline-block;
   vertical-align: top;
 }
@@ -39,12 +39,12 @@
 .nonghu-index .per-info .p-middle .item.data-v-3235c4e5:nth-child(2) {
   line-height: 40rpx;
 }
-.integral {
+/* .integral {
   margin-bottom: 10rpx;
 }
 .mobile {
   margin-bottom: 15rpx;
-}
+} */
 .address {
   width: 260rpx;
 }
@@ -76,9 +76,19 @@
   font-size: 34rpx;
   color: #333;
   margin-bottom: 20rpx;
+  position: relative;
 }
 .nonghu-index
   .function-points
   .single-points.data-v-3235c4e5:nth-child(2n + 1) {
   margin-right: 20rpx;
+}
+.read-icon {
+  width: 20rpx;
+  height: 20rpx;
+  background: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 15rpx;
+  right: 18rpx;
 }

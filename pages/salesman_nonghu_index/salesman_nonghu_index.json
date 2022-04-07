@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "block_list": "/components/block_list/block_list"
+  },
+  "navigationBarTitleText": "石原金牛"
+}

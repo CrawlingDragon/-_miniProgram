@@ -1,1 +1,60 @@
-.share-pic.data-v-f1a006ce{width:100%;height:100%;overflow:auto}.share-pic .share-list.data-v-f1a006ce{margin-top:20rpx;font-size:38rpx;font-family:Microsoft YaHei;font-weight:Regular;color:#333;height:calc(100% - 20rpx)}.share-pic .share-list .single-share.data-v-f1a006ce{height:200rpx;padding:30rpx 40rpx 33rpx 25rpx;background-color:#fff;border-bottom:1rpx solid rgba(0,0,0,.1)}.share-pic .share-list .single-share .item1.data-v-f1a006ce{display:inline-block;vertical-align:top}.share-pic .share-list .single-share .info.data-v-f1a006ce{margin-left:31rpx;width:calc(100% - 140rpx - 96rpx)}.share-pic .share-list .single-share .info .name.data-v-f1a006ce{margin:20rpx 0 10rpx 0}.share-pic .share-list .single-share .info .time.data-v-f1a006ce{color:#999;font-size:28rpx}.share-pic .no-data.data-v-f1a006ce{font-family:Microsoft YaHei;font-weight:Regular;color:#999;font-size:30rpx;margin-top:180rpx;text-align:center}
+.share-pic.data-v-f1a006ce {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.share-pic .share-list.data-v-f1a006ce {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #333;
+  height: calc(100% - 20rpx);
+}
+.share-pic .share-list .single-share.data-v-f1a006ce {
+  height: 200rpx;
+  padding: 30rpx 40rpx 33rpx 25rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.share-pic .share-list .single-share .item1.data-v-f1a006ce {
+  display: inline-block;
+  vertical-align: top;
+}
+.share-pic .share-list .single-share .info.data-v-f1a006ce {
+  margin-left: 31rpx;
+  width: calc(100% - 140rpx - 96rpx);
+}
+.share-pic .share-list .single-share .info .name.data-v-f1a006ce {
+  margin: 20rpx 0 10rpx 0;
+}
+.share-pic .share-list .single-share .info .time.data-v-f1a006ce {
+  color: #999;
+  font-size: 28rpx;
+}
+.share-pic .no-data.data-v-f1a006ce {
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 180rpx;
+  text-align: center;
+}
+.check-btn {
+  position: absolute;
+  right: 36rpx;
+  top: 50%;
+  margin-top: -30rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  width: 130rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ea5413;
+  border-radius: 7rpx;
+  text-align: center;
+}
+.check-btn.uncheck {
+  background: #1aa93a;
+}

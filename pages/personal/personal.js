@@ -9,26 +9,30 @@ Page({
     isshow: !1,
     show_address: !1,
     mobile: "18888888888",
-    username: "用户甲",
+    realname: "用户甲",
     shopname: "",
-    address: "浙江省杭州市滨江区", //所在地
-    address1: "",
+    addressValue: "浙江省杭州市滨江区", //所在地
+    addressCode: "", //所在地行政id ，3311，3321
     detailAddress: "", //详细地址
     actionshow: !1,
     right_icon: "arrow-right",
     inputAlign: "right",
-    crop: "", //作物
     fieldstyle: {
       fontSize: "30rpx",
       color: "#333333",
       paddingLeft: "30rpx",
     },
+    usertype: 0, //用户识别，1是农户，2是零售商
+    is_shop_auth: 0, //身份认证状态：（0未认证1认证中2认证通过3认证失败）
     params: { province: !0, city: !0, area: !0 },
     options: [
       { text: "用户协议", url: "../user_agreement/user_agreement" },
       { text: "用户隐私", url: "../user_policy/user_policy" },
     ],
+    crop: [], //作物
+    cropList: [],
     pageContainerShow: false, //选择作物的弹窗
+    chooseCropContentShow: false, //作物排列的选择内容框
   },
 
   /**
@@ -40,9 +44,19 @@ Page({
 
   onChooseAvatar(e) {
     //修改头像图片
+    const token = wx.getStorageSync("token");
     const { avatarUrl } = e.detail;
-    this.setData({
-      src: avatarUrl,
+    wx.uploadFile({
+      url: app.globalData.baseUrl + "member/upload/image",
+      filePath: avatarUrl,
+      name: "file",
+      formData: { token: token },
+      success: (res) => {
+        var data = JSON.parse(res.data);
+        this.setData({
+          src: data.data.url,
+        });
+      },
     });
   },
   chooseRouter(e) {
@@ -62,14 +76,23 @@ Page({
       success: (res) => {
         let data = res.data.data;
         this.setData({
-          username: data.nickname,
+          realname: data.realname,
           shopname: data.shop_name,
-          address: data.address[0],
-          address1: data.address[1],
+          addressValue: data.address[0],
+          addressCode: data.address[1],
           src: data.avatar,
           mobile: data.mobile,
           detailAddress: data.detailed_address,
           crop: data.user_crop,
+          usertype: data.user_type,
+          is_shop_auth:
+            data.is_shop_auth === 0
+              ? "未认证"
+              : data.is_shop_auth === 1
+              ? "认证中"
+              : data.is_shop_auth === 2
+              ? "认证通过"
+              : "认证失败",
         });
       },
     });
@@ -97,9 +120,11 @@ Page({
   },
   bindRegionChange(e) {
     //选择了所在地
-    let address = e.detail.value.join("");
+    let addressValue = e.detail.value.join("");
+    let addressCode = e.detail.code.join(",");
     this.setData({
-      address,
+      addressValue,
+      addressCode,
     });
   },
   writeDetailAddress(e) {
@@ -108,12 +133,7 @@ Page({
       detailAddress: e.detail.__args__[0],
     });
   },
-  chooseCrop() {
-    //选择作物
-    this.setData({
-      pageContainerShow: true,
-    });
-  },
+
   clickItem: function (t) {
     //选择图片
     var n = this,
@@ -124,8 +144,9 @@ Page({
         sizeType: ["original", "compressed"],
         sourceType: [r],
         success: function (t) {
-          e.uploadFile({
-            url: n.url + "member/upload/image",
+          debugger;
+          wx.uploadFile({
+            url: app.globalData.baseUrl + "member/upload/image",
             filePath: t.tempFilePaths[0],
             name: "file",
             formData: { token: n.token },
@@ -156,27 +177,34 @@ Page({
   },
   updataInfo: function () {
     //更新用户资料
-    var t = this;
-    this.myRequest({
+    let token = wx.getStorageSync("token");
+    wx.request({
       url: app.globalData.baseUrl + "member/user/update_user_info",
       method: "POST",
       data: {
-        token: t.token,
-        realname: t.username,
-        avatar: t.src,
-        address:
-          "1" == t.usertype || "2" == t.usertype ? [t.address, t.address1] : "",
-        shop_name: "2" == t.usertype ? t.shopname : "",
+        token: token,
+        realname: this.data.realname,
+        avatar: this.data.src,
+        address: [this.data.addressValue, this.data.addressCode],
+        // address:
+        //   "1" == t.usertype || "2" == t.usertype ? [t.address, t.address1] : "",
+        detailed_address: this.data.detailAddress,
+        shop_name: this.data.usertype == 2 ? this.data.shopname : "",
+        user_crop: this.data.crop,
+        shop_name: this.data.shopname,
       },
-    }).then(function (t) {
-      1 == t.data.code &&
-        "用户资料更新成功" == t.data.msg &&
-        e.navigateBack({
-          delta: 1,
-          success: function (e) {
-            console.log(e);
-          },
-        });
+      success: (res) => {
+        if (res.data.code === 1) {
+          wx.showToast({
+            title: res.data.msg,
+          });
+        } else if (res.data.code == 500) {
+          wx.clearStorageSync();
+          setTimeout(function () {
+            wx.reLaunch({ url: "../login/login?operation=relogin" });
+          }, 500);
+        }
+      },
     });
   },
   getShowStatus: function (e) {
@@ -184,5 +212,71 @@ Page({
   },
   reserve: function () {
     this.updataInfo();
+  },
+  chooseCrop() {
+    // 添加作物，二级展示页
+    this.setData({
+      pageContainerShow: true,
+    });
+  },
+  closeCrop() {
+    // 关闭选择作物，二级展示页
+    this.setData({ pageContainerShow: false });
+  },
+  addCrop() {
+    // 添加作物，弹出弹出框
+    let disabled = this.data.crop.length >= 3;
+    if (disabled) {
+      // 超过选中3个作物就置灰，不让点击
+      return;
+    }
+    this.setData({
+      chooseCropContentShow: true,
+    });
+  },
+  onChoose(e) {
+    //选中的作物
+    let { value } = e.detail;
+    this.setData({
+      chooseCropContentShow: false,
+    });
+
+    // 判断是否有重复添加作物，是就不再添加
+    let hasCrop = this.data.crop.includes(value);
+    if (hasCrop) {
+      return;
+    }
+    // 正常添加作物到crop数据中
+    this.data.crop.push(value);
+    this.setData({
+      crop: this.data.crop,
+    });
+  },
+  deleteCrop(e) {
+    // 获得选中的作物
+    let crop = e.currentTarget.dataset.crop;
+    // 找到选择作物在数据crop中的index
+    let index = this.data.crop.findIndex((item) => item == crop);
+    // splice删除他
+    this.data.crop.splice(index, 1);
+    this.setData({
+      crop: this.data.crop,
+    });
+  },
+  __l(e) {
+    console.log(e);
+  },
+  setInputValue(e) {
+    let key = e.currentTarget.dataset.key;
+    let val = e.detail.__args__[0];
+    console.log(val, key);
+    this.setData({
+      [key]: val,
+    });
+  },
+  goToApprove() {
+    wx.navigateTo({
+      url: "/pages/approve/approve",
+    });
   },
 });

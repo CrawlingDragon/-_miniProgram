@@ -1,2 +1,12 @@
 <!--pages/message_detail/message_detail.wxml-->
-<text>pages/message_detail/message_detail.wxml</text>
+<view class="msg-detail-wrap">
+  <view class="msg-head">
+    <view class="title">{{detailData.title}} </view>
+    <view class="time">{{detailData.create_at}}</view>
+  </view>
+  <!-- <image class="msg-detail-img"></image> -->
+  <!-- <text class="msg-detail-text">
+    {{detailData.content}}
+    </text> -->
+  <rich-text nodes="{{detailData.content}}"></rich-text>
+</view>

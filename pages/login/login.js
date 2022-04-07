@@ -1,3 +1,4 @@
+import getOpenId from "../../common/getOpenid";
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([
   ["pages/login/login"],
   {
@@ -77,6 +78,7 @@
           },
           onLoad: function (e) {
             // console.log("this", app.globalData.baseUrl);
+
             this.operation = e?.operation;
           },
           onShow: function (t) {
@@ -190,6 +192,7 @@
                       (r = "验证码错误，请重新填写"), n.showToast(r);
                       break;
                     case "已登录":
+                      getOpenId(o.data.data.token);
                       switch (
                         (n.setToken(o.data.data.token),
                         n.setUsertype(o.data.data.user_type),

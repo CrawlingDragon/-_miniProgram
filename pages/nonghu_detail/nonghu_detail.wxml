@@ -1,1 +1,20 @@
-<view class="nonghu-index data-v-fe8bc8b4"><view class="per-info data-v-fe8bc8b4"><view class="p-left data-v-fe8bc8b4"><u-image vue-id="d88210a8-1" width="100%" height="100%" shape="circle" src="{{perinfo.avatar}}" class="data-v-fe8bc8b4" bind:__l="__l"></u-image></view><view class="p-middle data-v-fe8bc8b4"><view class="item _p data-v-fe8bc8b4">{{''+perinfo.realname+''}}</view><view class="item data-v-fe8bc8b4">{{''+perinfo.mobile+''}}</view><view class="item data-v-fe8bc8b4">{{''+perinfo.address[0]+''}}</view></view></view><view class="function-points data-v-fe8bc8b4"><block wx:for="{{points}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['selPoints',['$0'],[[['points','',index]]]]]]]}}" class="single-points data-v-fe8bc8b4" bindtap="__e">{{''+item.text+''}}</view></block></view></view>
+<view class="nonghu-index data-v-3235c4e5">
+  <view class="per-info data-v-3235c4e5">
+    <view class="p-left data-v-3235c4e5">
+      <u-image vue-id="92016100-1" width="100%" height="100%" shape="circle" src="{{perinfo.avatar}}" class="data-v-3235c4e5"></u-image>
+    </view>
+    <view class="p-middle data-v-3235c4e5">
+      <view class="item _p data-v-3235c4e5">{{perinfo.realname}}</view>
+      <view class="item data-v-3235c4e5 mobile">{{perinfo.mobile}}</view>
+      <view class="item data-v-3235c4e5 integral" wx:if="{{perinfo.is_expert === 1}}">积分：{{perinfo.points}} </view>
+      <view class="item data-v-3235c4e5 address">{{perinfo.address[0]}}{{perinfo.detailed_address}}</view>
+    </view>
+  </view>
+  <view class="function-points data-v-3235c4e5">
+    <block wx:for="{{points}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="single-points data-v-3235c4e5" bindtap="selPoints" data-url="{{item.url}}" data-text="{{item.text}}" wx:if="{{perinfo.is_expert === 1 || item.index ==3}}">
+        {{item.text}}
+      </view>
+    </block>
+  </view>
+</view>

@@ -114,20 +114,24 @@
             e
           );
         }
-        const app = getApp()
+        const app = getApp();
         var u = {
           data: function () {
             return {
-              perinfo: "",
+              perinfo: {
+                avatar: "",
+              },
               points: [
-                { index: "1", text: "农技示范户管理" },
-                { index: "2", text: "零售商管理" },
-                { index: "3", text: "农技示范记录" },
-                { index: "4", text: "进货情况" },
-                { index: "5", text: "技术分享" },
-                { index: "6", text: "销售支持" },
-                { index: "7", text: "扫码追溯" },
-                { index: "8", text: "手工输入追溯" },
+                { index: "1", text: "农户", hasRedPoint: false },
+                { index: "2", text: "零售商", hasRedPoint: true },
+                { index: "3", text: "扫码追溯" },
+                { index: "4", text: "手工输入追溯" },
+                { index: "5", text: "信息提醒", hasRedPoint: true },
+                { index: "6", text: "经销商" },
+                { index: "7", text: "农技示范记录" },
+                { index: "8", text: "进货情况" },
+                { index: "9", text: "技术分享" },
+                { index: "10", text: "销售支持" },
               ],
             };
           },
@@ -152,14 +156,40 @@
                   : 510 == n.data.code &&
                     "无效的token参数！" == n.data.msg &&
                     e.navigateTo({ url: "../login/login?operation=relogin" });
+                if (n.data.code === 1) {
+                  let data = n.data.data;
+
+                  t.points.forEach((item) => {
+                    if (item.text === "农户") {
+                      item.hasRedPoint =
+                        data.has_crop === 1 || data.has_share === 1;
+                      return;
+                    }
+                    if (item.text === "零售商") {
+                      item.hasRedPoint =
+                        data.has_auth === 1 || data.has_support === 1;
+                      return;
+                    }
+                    if (item.text === "信息提醒") {
+                      item.hasRedPoint = data.is_notice === 1;
+                      return;
+                    }
+                    item.hasRedPoint = false;
+                  });
+
+                  t.points = t.points;
+                }
               });
             },
             selPoints: function (t) {
               switch (t.text) {
-                case "农技示范户管理":
-                  e.navigateTo({ url: "../nonghu_manage/nonghu_manage" });
+                case "农户":
+                  // e.navigateTo({ url: "../nonghu_manage/nonghu_manage" });
+                  e.navigateTo({
+                    url: `../salesman_nonghu_index/salesman_nonghu_index?has_crop=${this.perinfo.has_crop}&has_share=${this.perinfo.has_share}`,
+                  });
                   break;
-                case "零售商管理":
+                case "零售商":
                   e.navigateTo({ url: "../retailer_manage/retailer_manage" });
                   break;
                 case "农技示范记录":

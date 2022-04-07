@@ -1,0 +1,86 @@
+/* components/userInfo_header.wxss */
+.nonghu-index.data-v-ab676c6a {
+  overflow: auto;
+}
+.nonghu-index .per-info.data-v-ab676c6a {
+  width: 100%;
+  min-height: 210rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #efeff4;
+  padding: 40rpx 0 70rpx;
+}
+.nonghu-index .per-info .p-left.data-v-ab676c6a {
+  width: 130rpx;
+  height: 130rpx;
+  margin: 0 30rpx 0 25rpx;
+  display: inline-block;
+  vertical-align: top;
+}
+.nonghu-index .per-info .p-middle.data-v-ab676c6a {
+  display: inline-block;
+  width: 440rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  vertical-align: top;
+}
+.nonghu-index .per-info .p-middle .item.data-v-ab676c6a {
+  font-size: 28rpx;
+  color: #999;
+}
+.nonghu-index .per-info .p-middle .item.data-v-ab676c6a:nth-child(1) {
+  font-size: 40rpx;
+  color: #333;
+  padding-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nonghu-index .per-info .p-middle .item:nth-child(1) .text1.data-v-ab676c6a {
+  margin-left: 20rpx;
+}
+.nonghu-index .per-info .p-middle .item.data-v-ab676c6a:nth-child(3),
+.nonghu-index .per-info .p-middle .item.data-v-ab676c6a:nth-child(2) {
+  line-height: 45rpx;
+}
+
+.nonghu-index .function-points.data-v-ab676c6a {
+  background-color: #fff;
+  padding: 20rpx 25rpx 68rpx 25rpx;
+}
+.nonghu-index .function-points .single-points.data-v-ab676c6a {
+  background-color: #e4e3fa;
+  width: 340rpx;
+  height: 220rpx;
+  line-height: 180rpx;
+  display: inline-block;
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-family: Microsoft YaHei;
+  font-weight: Regular;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffe8f0;
+  vertical-align: top;
+  color: #333;
+  position: relative;
+}
+.nonghu-index
+  .function-points
+  .single-points.data-v-ab676c6a:nth-child(2n + 1) {
+  margin-right: 20rpx;
+}
+/* .nonghu-index .function-points .single-points.data-v-ab676c6a:nth-child(1),
+.nonghu-index .function-points .single-points.data-v-ab676c6a:nth-child(4),
+.nonghu-index .function-points .single-points.data-v-ab676c6a:nth-child(5) {
+  background-color: #f5e3fa;
+} */
+.nonghu-index .function-points .single-points.data-v-ab676c6a:nth-child(3) {
+  padding: 60rpx 86rpx;
+  line-height: 45rpx;
+}
+.integral {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+}
