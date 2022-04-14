@@ -128,10 +128,10 @@
                 { index: "4", text: "手工输入追溯" },
                 { index: "5", text: "信息提醒", hasRedPoint: true },
                 { index: "6", text: "经销商" },
-                { index: "7", text: "农技示范记录" },
-                { index: "8", text: "进货情况" },
-                { index: "9", text: "技术分享" },
-                { index: "10", text: "销售支持" },
+                // { index: "7", text: "农技示范记录" },
+                // { index: "8", text: "进货情况" },
+                // { index: "9", text: "技术分享" },
+                // { index: "10", text: "销售支持" },
               ],
             };
           },
@@ -190,7 +190,9 @@
                   });
                   break;
                 case "零售商":
-                  e.navigateTo({ url: "../retailer_manage/retailer_manage" });
+                  e.navigateTo({
+                    url: `../salesman_retailer_index/salesman_retailer_index?has_auth=${this.perinfo.has_auth}&has_support=${this.perinfo.has_support}`,
+                  });
                   break;
                 case "农技示范记录":
                   e.navigateTo({

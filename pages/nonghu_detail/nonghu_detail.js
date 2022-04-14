@@ -17,7 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     if (options?.user_id) {
       this.setData({
         user_id: options.user_id,
@@ -48,11 +47,7 @@ Page({
       });
     } else if (text == "红包日志") {
       wx.navigateTo({
-        url: "../redbag_log/redbag_log?user_id=".concat(
-          this.user_id,
-          "&from=",
-          "nonghu_detail"
-        ),
+        url: `../redbag_log/redbag_log?user_id=${this.data.user_id}`,
       });
     }
   },

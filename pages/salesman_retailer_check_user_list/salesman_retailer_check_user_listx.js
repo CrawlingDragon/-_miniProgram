@@ -1,4 +1,4 @@
-// pages/redbag_log.js
+// pages/salesman_retailer_check_user_list/salesman_retailer_check_user_listx.js
 const app = getApp();
 Page({
   /**
@@ -6,53 +6,33 @@ Page({
    */
   data: {
     page: 1,
-    total_amount: 0, //红包总数
-    redBag_list: [],
+    list: [],
     loading_text: "加载更多...",
     noMore_text: "无更多数据",
     loading: false,
     noMore: false,
-    user_id: "", //用户id，在农技师范户的红包日志，需要使用
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.user_id) {
-      this.setData({
-        user_id: options.user_id,
-      });
-    }
-    this.getRedBagList();
+    this.ajaxGetList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  getRedBagList() {
-    // 获取列表数据
+  ajaxGetList() {
     let token = wx.getStorageSync("token");
     this.setData({
       loading: true,
     });
     wx.request({
-      url: app.globalData.baseUrl + "member/redpacket/get_redpacket_log",
+      url: app.globalData.baseUrl + "/member/retail/get_retails_auth_list",
       method: "POST",
-      data: {
-        token: token,
-        user_id: this.data.user_id,
-        page: this.data.page,
-        pagesize: 10,
-      },
+      data: { token, page: this.data.page },
       success: (res) => {
         let data = res.data;
         if (data.code === 1) {
           this.setData({
-            total_amount: data.data.total_amount,
-            redBag_list: this.data.redBag_list.concat(data.data.list),
+            list: [...this.data.list, ...data.data.list],
             page: data.data.cur_page.page + 1,
             loading: false,
           });
@@ -79,7 +59,13 @@ Page({
       },
     });
   },
-
+  navigateFn(e) {
+    let auth_id = e.currentTarget.dataset.auth_id;
+    //点击列表，导航到审核页面
+    wx.navigateTo({
+      url: `/pages/salesman_approve/salesman_approve?auth_id=${auth_id}`,
+    });
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -87,6 +73,6 @@ Page({
     if (this.data.noMore) {
       return;
     }
-    this.getRedBagList();
+    this.ajaxGetList();
   },
 });

@@ -1,0 +1,8 @@
+<!-- 用户状态栏，表示认证状态和积分多少 -->
+<view class="auth-bar">
+  <block wx:if="{{auth === 0}}">未认证</block>
+  <block wx:if="{{auth === 1}}">认证中</block>
+  <!-- 2.已认证,显示积分 -->
+  <block wx:if="{{auth === 2}}">积分:{{point}}</block>
+  <block wx:if="{{auth === 3}}">认证失败</block>
+</view>

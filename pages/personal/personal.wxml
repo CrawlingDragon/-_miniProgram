@@ -16,7 +16,7 @@
     </view>
     <view class="item2 data-v-09a960fa">
       <!-- 用户名，也就是手机号 -->
-      <u-field bind:input="__e" vue-id="ffa91980-3" label="用户名" field-style="{{fieldstyle}}" input-align="{{inputAlign}}" disabled="{{true}}" value="{{mobile}}" data-event-opts="{{[['^input',[['__set_model',['','mobile','$event',[]]]]]]}}" class="data-v-09a960fa" bind:__l="__l"></u-field>
+      <u-field vue-id="ffa91980-3" label="用户名" field-style="{{fieldstyle}}" input-align="{{inputAlign}}" disabled="{{true}}" value="{{mobile}}" class="data-v-09a960fa" right-icon="{{right_icon}}" bindtap="goToChangeBindPhone"></u-field>
 
       <!-- 名字 -->
       <u-field bind:input="__e" vue-id="ffa91980-4" label="名字" maxlength="{{10}}" clearable="{{false}}" input-align="{{inputAlign}}" right-icon="{{right_icon}}" field-style="{{fieldstyle}}" value="{{realname}}" bindinput="setInputValue" data-key="realname" class="data-v-09a960fa"></u-field>

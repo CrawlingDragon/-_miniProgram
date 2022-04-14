@@ -1,0 +1,19 @@
+<!-- 业务员-零售商，审核零售商人员列表 -->
+<view class="items">
+  <view wx:for="{{list}}" class="item" wx:key="user_id" bindtap="navigateFn" data-auth_id="{{item.auth_id}}">
+    <image src="{{item.avatar}}" class="img"></image>
+    <view class="mid">
+      <view class="name">
+        <text class="real-name">{{item.realname}}</text>
+        <text class="shop-name">{{item.shop_name}}</text>
+      </view>
+      <view class="mobile">{{item.mobile}}</view>
+      <view class="address">{{item.address}}</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{loading}}" class="loading-text">{{loading_text}}</view>
+<view wx:if="{{noMore && page !== 1}}" class="loading-text">{{noMore_text}}</view>
+<view wx:if="{{redBag_list.length === 0 }}" class="no-data">
+  暂无红包
+</view>

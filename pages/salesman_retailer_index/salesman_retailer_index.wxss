@@ -9,7 +9,7 @@
 .item {
   width: 340rpx;
   height: 220rpx;
-  background: #ddefff;
+  background: #ffe8f0;
   border-radius: 10px;
   margin-bottom: 20rpx;
   position: relative;

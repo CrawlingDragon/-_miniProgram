@@ -124,7 +124,7 @@
             e
           );
         }
-        const app = getApp()
+        const app = getApp();
         var a = {
           data: function () {
             return {
@@ -132,6 +132,7 @@
               points: [
                 { index: "1", text: "进货情况" },
                 { index: "2", text: "销售支持" },
+                { index: "3", text: "积分日志" },
               ],
               user_id: "",
             };

@@ -38,7 +38,7 @@ Page({
         break;
       case "4":
         wx.navigateTo({
-          url: "/pages/redbag_log/redbag_log",
+          url: "/pages/redbag_log_all/redbag_log_all",
         });
         break;
     }

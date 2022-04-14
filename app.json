@@ -8,6 +8,8 @@
     "pages/regesiter/regesiter",
     "pages/nonghu_index/nonghu_index",
     "pages/personal/personal",
+    "pages/changeBindPhone/changeBindPhone",
+    "pages/changeBindOldPhone/changeBindOldPhone",
     "pages/medication_record/medication_record",
     "pages/upload_share/upload_share",
     "pages/add_medication_record/add_medication_record",
@@ -31,6 +33,7 @@
     "pages/product_trace_detail/product_trace_detail",
     "pages/retailer_detail/retailer_detail",
     "pages/redbag_log/redbag_log",
+    "pages/redbag_log_all/redbag_log_all",
     "pages/authentication/authentication",
     "pages/message_list/message_list",
     "pages/message_detail/message_detail",
@@ -40,7 +43,9 @@
     "pages/approve/approve",
     "pages/salesman_nonghu_index/salesman_nonghu_index",
     "pages/salesman_retailer_index/salesman_retailer_index",
-    "pages/salesman_sell_index/salesman_sell_index"
+    "pages/salesman_retailer_check_user_list/salesman_retailer_check_user_listx",
+    "pages/salesman_sell_index/salesman_sell_index",
+    "pages/salesman_approve/salesman_approve"
   ],
   "subPackages": [],
   "window": {

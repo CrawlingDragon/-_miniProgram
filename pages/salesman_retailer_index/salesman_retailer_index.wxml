@@ -1,10 +1,11 @@
 <view class="item-wrap">
-  <view class="item">农技示范户管理</view>
-  <view class="item">技术分享
-    <view class="read-icon"></view>
+  <view class="item" data-text="零售商管理" catchtap="navgativeFn">零售商管理</view>
+  <view class="item" data-text="零售商身份审核" catchtap="navgativeFn">零售商身份审核
+    <view class="read-icon" wx:if="{{has_auth == 1}}"></view>
   </view>
-  <view class="item">农技示范记录
-    <view class="read-icon"></view>
+  <view class="item" data-text="销售支持" catchtap="navgativeFn">销售支持
+    <view class="read-icon" wx:if="{{has_suppot == 1}}"></view>
   </view>
-  <view class="item">红包日志</view>
+  <view class="item" data-text="进货情况" catchtap="navgativeFn">进货情况</view>
+  <view class="item" data-text="零售商积分日志" catchtap="navgativeFn">零售商积分日志</view>
 </view>

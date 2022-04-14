@@ -6,24 +6,17 @@ Page({
    */
   data: {
     page: 1,
-    total_amount: 0, //红包总数
     redBag_list: [],
     loading_text: "加载更多...",
     noMore_text: "无更多数据",
     loading: false,
     noMore: false,
-    user_id: "", //用户id，在农技师范户的红包日志，需要使用
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.user_id) {
-      this.setData({
-        user_id: options.user_id,
-      });
-    }
     this.getRedBagList();
   },
 
@@ -39,11 +32,10 @@ Page({
       loading: true,
     });
     wx.request({
-      url: app.globalData.baseUrl + "member/redpacket/get_redpacket_log",
+      url: app.globalData.baseUrl + "/member/redpacket/get_user_redpacket_log",
       method: "POST",
       data: {
         token: token,
-        user_id: this.data.user_id,
         page: this.data.page,
         pagesize: 10,
       },
@@ -51,7 +43,6 @@ Page({
         let data = res.data;
         if (data.code === 1) {
           this.setData({
-            total_amount: data.data.total_amount,
             redBag_list: this.data.redBag_list.concat(data.data.list),
             page: data.data.cur_page.page + 1,
             loading: false,

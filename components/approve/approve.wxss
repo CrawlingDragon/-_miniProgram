@@ -1,0 +1,5 @@
+/* components/approve/approve.wxss */
+.auth-bar {
+  font-size: 28rpx;
+  color: #999999;
+}

@@ -275,8 +275,15 @@ Page({
     });
   },
   goToApprove() {
+    // 去认证页
     wx.navigateTo({
       url: "/pages/approve/approve",
+    });
+  },
+  goToChangeBindPhone() {
+    // 去 更改用户名，也就是更改手机页
+    wx.navigateTo({
+      url: `/pages/changeBindOldPhone/changeBindOldPhone?mobile=${this.data.mobile}`,
     });
   },
 });

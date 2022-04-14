@@ -63,19 +63,16 @@
   margin-bottom: 20rpx;
   vertical-align: top;
   position: relative;
+  background-color: #defedf;
 }
 .nonghu-index
   .function-points
   .single-points.data-v-71df09ff:nth-child(2n + 1) {
   margin-right: 20rpx;
-  background-color: #faebe3;
 }
-.nonghu-index
-  .function-points
-  .single-points.data-v-71df09ff:nth-child(2n + 2) {
-  background-color: #e5f5f2;
+.nonghu-index .function-points .single-points.data-v-71df09ff:first-child {
+  background-color: #ddefff;
 }
-.nonghu-index .function-points .single-points.data-v-71df09ff:nth-child(7),
-.nonghu-index .function-points .single-points.data-v-71df09ff:nth-child(8) {
-  background-color: #defedf;
+.nonghu-index .function-points .single-points.data-v-71df09ff:nth-child(2) {
+  background: #ffe8f0;
 }

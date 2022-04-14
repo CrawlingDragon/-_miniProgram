@@ -1,0 +1,14 @@
+<!--pages/changeBindPhone/changeBindPhone.wxml-->
+<!-- 更换绑定手机 -->
+<view class="box">
+  <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <mp-cell prop="mobile" title="原手机号" ext-class="weui-cell_vcode">
+      <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号" type="number" />
+      <view slot="footer" class="weui-vcode-btn {{disabled?'disabled':''}}" bindtap="getPhoneCode">{{getCodeText}}</view>
+    </mp-cell>
+    <mp-cell prop="vcode" title="验证码" ext-class="">
+      <input data-field="vcode" class="weui-input" placeholder="请输入验证码" bindinput="formInputChange" type="number" />
+    </mp-cell>
+  </mp-form>
+</view>
+<view class="btn {{submitBtnDisabled?'disabled':''}}" bindtap="submitForm">确认</view>

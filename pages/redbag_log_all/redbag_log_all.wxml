@@ -1,13 +1,15 @@
 <!--pages/redbag_log.wxml-->
 <view class="rb-log-container">
-  <view class="rb-log-head" wx:if="{{redBag_list.length >= 1 }}">
-    红包 ¥{{total_amount}}
-  </view>
   <view class="rb-log-ul">
     <view class="rb-log-li" wx:for="{{redBag_list}}" wx:key="price">
-      <view class="rb-name">{{item.product_name}} {{item.product_spec}}</view>
-      <view class="rb-create_at">{{item.create_at}}</view>
-      <view class="price">¥{{item.amount}}</view>
+      <view class="rb-name">
+        <text class="name">{{item.realname || '某某'}}</text>
+        <text class="mobile">{{item.mobile}}</text>
+      </view>
+      <view class="rb-create_at">
+        <mp-icon icon="location" color="#999999" extClass="location" size="{{18}}"></mp-icon>{{item.address}}
+      </view>
+      <view class="price">{{item.total_amount}}</view>
     </view>
   </view>
   <view wx:if="{{loading}}" class="loading-text">{{loading_text}}</view>

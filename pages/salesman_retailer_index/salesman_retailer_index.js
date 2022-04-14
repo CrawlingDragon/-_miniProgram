@@ -1,66 +1,53 @@
 // pages/salesman_retailer_index/salesman_retailer_index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    has_auth: "", //时候有零售商身份审核
+    has_support: "", //是否有销售支持
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (options.has_auth && options.has_support) {
+      this.setData({
+        has_auth: options.has_auth,
+        has_support: options.has_support,
+      });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  navgativeFn(e) {
+    //路由函数
+    let text = e.currentTarget.dataset.text;
+    switch (text) {
+      case "零售商管理":
+        wx.navigateTo({
+          url: "/pages/retailer_manage/retailer_manage",
+        });
+        break;
+      case "零售商身份审核":
+        wx.navigateTo({
+          url: "/pages/salesman_retailer_check_user_list/salesman_retailer_check_user_listx",
+        });
+        break;
+      case "销售支持":
+        wx.navigateTo({
+          url: "/pages/sale_support/sale_support",
+        });
+        break;
+      case "进货情况":
+        wx.navigateTo({
+          url: "/pages/enter_products_bysale/enter_products_bysale",
+        });
+        break;
+      case "零售商积分日志":
+        wx.navigateTo({
+          url: "url",
+        });
+        break;
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

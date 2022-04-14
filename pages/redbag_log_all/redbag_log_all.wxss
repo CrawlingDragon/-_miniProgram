@@ -1,0 +1,52 @@
+/* pages/redbag_log_all/redbag_log_all.wxss */
+/* pages/redbag_log.wxss */
+.rb-log-head {
+  height: 136rpx;
+  padding: 0 33rpx;
+  font-size: 40rpx;
+  font-weight: 400;
+  color: #000000;
+  line-height: 136rpx;
+}
+.rb-log-ul {
+  background: #ffffff;
+  padding-left: 33rpx;
+}
+.rb-log-ul .rb-log-li {
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 169rpx;
+}
+
+.rb-log-ul .rb-log-li .rb-name {
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 10rpx;
+}
+.rb-log-ul .rb-log-li .rb-name .name {
+  margin-right: 20rpx;
+}
+.rb-log-ul .rb-log-li .rb-create_at {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+}
+.rb-log-ul .rb-log-li .rb-create_at .location {
+  margin-right: 10rpx;
+}
+.rb-log-ul .rb-log-li .price {
+  position: absolute;
+  top: 43rpx;
+  right: 31rpx;
+  font-size: 34rpx;
+
+  font-weight: 400;
+  color: #000000;
+}
+.rb-log-ul .rb-log-li:last-child {
+  border: none;
+}
